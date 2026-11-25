@@ -1,0 +1,57 @@
+{
+  "_notes": [
+    "Open roles for careers.html. Departments come from the client's current Careers page.",
+    "Everything marked [Placeholder] is waiting on the Careers workshop (see CLIENT-QUESTIONS.md).",
+    "Each role's title also appears in the application form's Position dropdown; the contact function accepts any title listed here."
+  ],
+  "roles": [
+    {
+      "id": "nail-technician",
+      "title": "Nail Technician",
+      "type": "[Placeholder: employee / contractor / booth rental]",
+      "summary": "Manicures, pedicures and nail design, from classic to couture.",
+      "requirements": ["[Placeholder: DC license required?]", "[Placeholder: experience level]"],
+      "placeholder": true
+    },
+    {
+      "id": "waxing-specialist",
+      "title": "Waxing Specialist",
+      "type": "[Placeholder: employee / contractor / booth rental]",
+      "summary": "Full-body waxing for men, women and trans clients, our most popular service.",
+      "requirements": ["[Placeholder: DC esthetics license?]", "[Placeholder: Brazilian experience]"],
+      "placeholder": true
+    },
+    {
+      "id": "hairstylist-barber",
+      "title": "Hairstylist / Barber",
+      "type": "[Placeholder: employee / contractor / booth rental]",
+      "summary": "Cuts, color and styling for every hair type and gender expression.",
+      "requirements": ["[Placeholder: DC cosmetology or barber license]"],
+      "placeholder": true
+    },
+    {
+      "id": "massage-therapist",
+      "title": "Massage Therapist",
+      "type": "[Placeholder: employee / contractor / booth rental]",
+      "summary": "Therapeutic, Swedish and deep tissue massage for a loyal client base.",
+      "requirements": ["[Placeholder: DC massage therapy license]"],
+      "placeholder": true
+    },
+    {
+      "id": "esthetician",
+      "title": "Esthetician",
+      "type": "[Placeholder: employee / contractor / booth rental]",
+      "summary": "Facials, back facials and skin care treatments.",
+      "requirements": ["[Placeholder: DC esthetics license]"],
+      "placeholder": true
+    },
+    {
+      "id": "guest-services",
+      "title": "Guest Services",
+      "type": "[Placeholder: part-time / full-time]",
+      "summary": "The first face clients see: front desk, booking and keeping the day running.",
+      "requirements": ["[Placeholder: requirements]"],
+      "placeholder": true
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+<!--
+  Shared site header. Edit here only: the build writes this into every page's
+  <header data-site-header>, marking the current page's link. In unbuilt
+  previews (Live Server) js/nav.js fetches it instead.
+  Layout from the homepage design: links split around the "B" medallion.
+-->
+<div class="header-bar">
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+
+  <nav class="primary-nav" id="primary-navigation" aria-label="Main">
+    <div class="primary-nav__group">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="events.html">Events</a>
+    </div>
+    <div class="primary-nav__group primary-nav__group--end">
+      <a href="partners.html">Partners</a>
+      <a href="careers.html">Careers</a>
+      <a href="faq.html">FAQ</a>
+      <a class="primary-nav__book" href="book.html">Book now</a>
+    </div>
+  </nav>
+
+  <a class="header-book" href="book.html">Book now</a>
+
+  <a class="medallion" href="index.html" aria-label="Buddies Spa home" data-medallion>
+    <span class="medallion__welcome" aria-hidden="true">Welcome to</span>
+    <img class="medallion__neon" src="css/images/buddies-spa-rainbow-logo.png" alt="" width="3807" height="1174" aria-hidden="true">
+    <span class="medallion__subtitle" aria-hidden="true">The Queer Spa DC</span>
+  </a>
+</div>

@@ -1,0 +1,307 @@
+{
+  "_notes": [
+    "FAQ content for faq.html. One group per service plus a general group.",
+    "Each question has a section: before | during | after | general.",
+    "service ties a group to a category id in data/services.json (Book button + Services page links).",
+    "Answers are plain text. Blank lines start a new paragraph, lines starting with \"- \" become a list, **text** is bold.",
+    "\"placeholder\": true marks answers still waiting on the client. The build adds every non-placeholder answer to Google's FAQ structured data.",
+    "This file can later feed the chatbot."
+  ],
+  "groups": [
+    {
+      "id": "general",
+      "name": "First visit & general",
+      "service": null,
+      "intro": "Booking, payment, gift cards and what to expect when you walk in.",
+      "items": [
+        {
+          "section": "general",
+          "q": "How do I book an appointment?",
+          "a": "Book online any time through our booking page, which shows live availability for every service and team member. You can also call us at (202) 926-7178."
+        },
+        {
+          "section": "general",
+          "q": "Do you take walk-ins?",
+          "a": "Yes. We welcome walk-ins and appointments. Booking ahead is the best way to get the time and team member you want, especially evenings and weekends."
+        },
+        {
+          "section": "general",
+          "q": "What are your hours?",
+          "a": "Monday to Saturday, 10 AM to 8 PM. Sunday, 10 AM to 6 PM."
+        },
+        {
+          "section": "general",
+          "q": "Who is Buddies for?",
+          "a": "Everyone. Buddies is a safe, affirming space for the LGBTQAI+ community and our allies, and every client is welcome to come as they are."
+        },
+        {
+          "section": "general",
+          "q": "Do you sell gift cards?",
+          "a": "Yes. Digital gift cards can be bought online and used for any service."
+        },
+        {
+          "section": "general",
+          "q": "What is your cancellation and late arrival policy?",
+          "a": "[Placeholder: cancellation window, late arrival grace period, and no-show policy from the client.]",
+          "placeholder": true
+        },
+        {
+          "section": "general",
+          "q": "What payment methods do you accept? Is a deposit required?",
+          "a": "[Placeholder: accepted payment methods and whether any service needs a deposit.]",
+          "placeholder": true
+        },
+        {
+          "section": "general",
+          "q": "Should I tip?",
+          "a": "[Placeholder: tipping guidance and whether tips can be added by card.]",
+          "placeholder": true
+        },
+        {
+          "section": "general",
+          "q": "How do you protect my privacy and comfort?",
+          "a": "[Placeholder: private treatment rooms, choosing your technician, how to share preferences, pronouns on file.]",
+          "placeholder": true
+        },
+        {
+          "section": "general",
+          "q": "Is the spa accessible?",
+          "a": "[Placeholder: step-free entry, restroom access, and any accessibility accommodations.]",
+          "placeholder": true
+        }
+      ]
+    },
+    {
+      "id": "waxing-men",
+      "name": "Men's waxing",
+      "service": "mens-waxing",
+      "intro": "The male Brazilian is no longer something to wonder about. Here's a step-by-step guide to waxing, below the boxers and everywhere else.",
+      "items": [
+        {
+          "section": "before",
+          "q": "How should I prepare for my wax?",
+          "a": "- **Be clean.** Come freshly showered.\n- **Be dry.** Skip lotion and oils that day. Wax grips better on skin that isn't oily.\n- **Be a little hairy.** Hair should be at least ¼ inch long, so don't shave for about three weeks before. If things have gotten out of control, don't worry: your technician will trim longer hair first.\n- **Be comfortable.** Wear loose clothing to avoid irritation afterward.\n- **Be relaxed.** The more relaxed your muscles, the better your results."
+        },
+        {
+          "section": "during",
+          "q": "What happens during the appointment?",
+          "a": "- **Privacy.** You'll undress in a private treatment room. For a Brazilian you'll remove your underwear, which protects your clothes and lets your technician get every unwanted hair.\n- **Prep.** Your technician cleanses the area to remove bacteria from the skin.\n- **Consultation.** They check hair length, trim as needed, and ask where you'd like to keep hair and how much.\n- **Waxing.** The main event.\n- **Fine-tuning.** You'll get a mirror to approve your new look, and any stray hairs are tidied.\n- **Done.** Get dressed and get on with your day."
+        },
+        {
+          "section": "during",
+          "q": "How long does it take?",
+          "a": "[Placeholder: typical times for a Brazilian, back, chest and full body.]",
+          "placeholder": true
+        },
+        {
+          "section": "after",
+          "q": "How should I care for my skin afterward?",
+          "a": "[Placeholder: aftercare guidance, e.g. what to avoid for 24–48 hours and how to prevent ingrown hairs.]",
+          "placeholder": true
+        },
+        {
+          "section": "after",
+          "q": "How often should I come back?",
+          "a": "If it's your first time, treat it like a new haircut: live with it for a few days, then decide. [Placeholder: recommended rebooking interval.]",
+          "placeholder": true
+        },
+        {
+          "section": "general",
+          "q": "Why do men get a Brazilian or body wax?",
+          "a": "- To skip the itchy five o'clock shadow that comes with shaving and get a longer-lasting, smoother result.\n- Swimmers, athletes and bodybuilders often remove body hair, especially before competition.\n- Personal preference. Plenty of guys simply prefer how it looks and feels."
+        }
+      ]
+    },
+    {
+      "id": "waxing-women",
+      "name": "Women's waxing",
+      "service": "womens-waxing",
+      "intro": "Smooth, long-lasting results with skin benefits too: waxing promotes collagen production, which strengthens skin and can improve elasticity and hydration.",
+      "items": [
+        {
+          "section": "before",
+          "q": "How should I prepare?",
+          "a": "[Placeholder: preparation guidance for women's waxing, e.g. hair length, skin prep, timing around your cycle.]",
+          "placeholder": true
+        },
+        {
+          "section": "during",
+          "q": "What happens during the appointment, and how long does it take?",
+          "a": "[Placeholder: what to expect and typical service times.]",
+          "placeholder": true
+        },
+        {
+          "section": "after",
+          "q": "Aftercare and when to come back",
+          "a": "[Placeholder: aftercare guidance and rebooking interval.]",
+          "placeholder": true
+        }
+      ]
+    },
+    {
+      "id": "waxing-trans",
+      "name": "Trans waxing",
+      "service": "trans-waxing",
+      "intro": "The Trans Manzillian and Girlzillian were created for our trans family and friends, so you feel comfortable and get the service you need, the way you want it.",
+      "items": [
+        {
+          "section": "before",
+          "q": "What should I know before my first visit?",
+          "a": "[Placeholder: the questions trans clients most often ask before a first visit, written with the client, e.g. choosing your technician, sharing your name and pronouns, privacy.]",
+          "placeholder": true
+        },
+        {
+          "section": "during",
+          "q": "What happens during the appointment?",
+          "a": "[Placeholder: what to expect, how preferences are discussed, typical service times.]",
+          "placeholder": true
+        },
+        {
+          "section": "after",
+          "q": "Aftercare and when to come back",
+          "a": "[Placeholder: aftercare guidance, including anything specific for clients on HRT or post-surgery, and rebooking interval.]",
+          "placeholder": true
+        }
+      ]
+    },
+    {
+      "id": "facials",
+      "name": "Facials & back facials",
+      "service": "facials",
+      "intro": "Facials matter for everyone's skin. Here's how to get the most from yours.",
+      "items": [
+        {
+          "section": "before",
+          "q": "How should I prepare for a facial?",
+          "a": "**Come with bare skin.** Wash off your products or skip your skincare routine that morning, except sunscreen. On a first facial especially, this makes it easy to tell whether any irritation comes from the treatment.\n\n**Skip retinol and other strong actives.** Retinol removes dead skin cells and can cause dryness, redness and irritation. Combined with facial treatments it can trigger a stronger reaction."
+        },
+        {
+          "section": "during",
+          "q": "What does a facial do for my skin?",
+          "a": "- **Unclogs and refines pores.** Oil, dirt and larger pores lead to blackheads and breakouts. A facial clears them and helps prevent further problems.\n- **Smoother shaving.** Treatments calm razor burn and irritation, and exfoliation helps release ingrown hairs before they become bumps.\n- **Skin care education.** Your esthetician learns your skin and recommends treatments, products and how to use them."
+        },
+        {
+          "section": "during",
+          "q": "How long does it take?",
+          "a": "Our Purifying Back & Butt Facial comes in 60- and 90-minute versions. [Placeholder: times for other facials.]",
+          "placeholder": true
+        },
+        {
+          "section": "after",
+          "q": "What should I do after my facial?",
+          "a": "Ask your esthetician which products suit your skin concerns and what routine to follow at home. A regular routine after a facial keeps results going longer."
+        },
+        {
+          "section": "after",
+          "q": "How often should I get a facial?",
+          "a": "[Placeholder: recommended interval between facials.]",
+          "placeholder": true
+        }
+      ]
+    },
+    {
+      "id": "massage",
+      "name": "Massage",
+      "service": "massage",
+      "intro": "Massage reduces muscle tension and releases endorphins that ease pain and stress.",
+      "items": [
+        {
+          "section": "before",
+          "q": "How should I prepare for a massage?",
+          "a": "[Placeholder: arrival time, intake form, health conditions to mention, what to wear.]",
+          "placeholder": true
+        },
+        {
+          "section": "during",
+          "q": "Which massage should I choose, and how long is a session?",
+          "a": "We offer therapeutic, Swedish, deep tissue and trigger point work. [Placeholder: how to choose, session lengths, pressure and draping.]",
+          "placeholder": true
+        },
+        {
+          "section": "after",
+          "q": "What should I do after my massage?",
+          "a": "[Placeholder: aftercare guidance and how often to book.]",
+          "placeholder": true
+        }
+      ]
+    },
+    {
+      "id": "nails",
+      "name": "Nails",
+      "service": "nails",
+      "intro": "From classic care to fashion design, for every set of hands and feet.",
+      "items": [
+        {
+          "section": "before",
+          "q": "How should I prepare?",
+          "a": "[Placeholder: removing old polish or gel, bringing design inspiration.]",
+          "placeholder": true
+        },
+        {
+          "section": "during",
+          "q": "What happens during a manicure or pedicure, and how long does it take?",
+          "a": "[Placeholder: service steps and typical times.]",
+          "placeholder": true
+        },
+        {
+          "section": "after",
+          "q": "How do I make my nails last?",
+          "a": "[Placeholder: aftercare and when to come back.]",
+          "placeholder": true
+        }
+      ]
+    },
+    {
+      "id": "hair",
+      "name": "Hair & barbering",
+      "service": "hair",
+      "intro": "Cuts, color and styling for all hair types, styles and gender expressions.",
+      "items": [
+        {
+          "section": "before",
+          "q": "How should I prepare for my cut or color?",
+          "a": "[Placeholder: washing, reference photos, color consultations and patch tests.]",
+          "placeholder": true
+        },
+        {
+          "section": "during",
+          "q": "What happens during the appointment, and how long does it take?",
+          "a": "[Placeholder: consultation, service steps and typical times.]",
+          "placeholder": true
+        },
+        {
+          "section": "after",
+          "q": "Aftercare and when to come back",
+          "a": "[Placeholder: color care and recommended interval between cuts.]",
+          "placeholder": true
+        }
+      ]
+    },
+    {
+      "id": "lashes-brows",
+      "name": "Lashes & brows",
+      "service": "lashes-brows",
+      "intro": "Frame your eyes and express your style.",
+      "items": [
+        {
+          "section": "before",
+          "q": "How should I prepare?",
+          "a": "[Placeholder: arrive without eye makeup, contact lenses, recent brow treatments.]",
+          "placeholder": true
+        },
+        {
+          "section": "during",
+          "q": "What happens during the appointment, and how long does it take?",
+          "a": "[Placeholder: service steps and typical times.]",
+          "placeholder": true
+        },
+        {
+          "section": "after",
+          "q": "Aftercare and when to come back",
+          "a": "[Placeholder: aftercare and fill or touch-up timing.]",
+          "placeholder": true
+        }
+      ]
+    }
+  ]
+}

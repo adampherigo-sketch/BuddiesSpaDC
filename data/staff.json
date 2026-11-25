@@ -1,0 +1,142 @@
+{
+  "_notes": [
+    "Seed data for M-Staff (buddies-spa tenant). Fields match the M-Staff plan: name, title, photo, bio, specialties, services, booking link, order, status.",
+    "Bios are the client's own copy from the current Staff page, lightly tightened.",
+    "services[] uses category ids from data/services.json. Mappings are inferred from each bio and must be confirmed by the client (see CLIENT-QUESTIONS.md).",
+    "squareTeamMemberId values are the real Square team member IDs from the current site; Michael Ney has none there yet.",
+    "Only status \"published\" records appear on the site."
+  ],
+  "staff": [
+    {
+      "id": "kris",
+      "name": "Kris Otto",
+      "title": "Founder · Esthetician & Cosmetologist",
+      "photo": "images/staff/kris.jpeg",
+      "bio": "Kris is a well-known esthetician and cosmetologist who has worked in the DMV for many years. He founded Buddies in 2022 after starting out as a nail technician and moving into waxing, and he works hard to deliver the highest quality work to every client.",
+      "specialties": ["Waxing", "Skin care"],
+      "services": ["mens-waxing", "womens-waxing", "trans-waxing", "facials"],
+      "squareTeamMemberId": "TM2WbgiYEue2haMi",
+      "bookingUrl": "",
+      "order": 1,
+      "status": "published"
+    },
+    {
+      "id": "stephanus-rensburg",
+      "name": "Stephanus Rensburg",
+      "title": "Massage Therapist",
+      "photo": "images/staff/stephanus-rensburg.jpeg",
+      "bio": "Stephanus has more than 20 years of massage experience on two continents. Our most requested massage therapist, he has been with Buddies since 2022. His specialties are therapeutic and Swedish massage.",
+      "specialties": ["Therapeutic massage", "Swedish massage"],
+      "services": ["massage"],
+      "squareTeamMemberId": "TM4XR3P7uyhR71Tq",
+      "bookingUrl": "",
+      "order": 2,
+      "status": "published"
+    },
+    {
+      "id": "michael-ney",
+      "name": "Michael Ney",
+      "title": "Licensed Massage Therapist",
+      "photo": "images/staff/michael-ney.jpeg",
+      "bio": "Michael is a licensed massage therapist with over five years of experience in deep tissue, trigger point therapy and Swedish massage. He tailors every session to what you need, whether that's relieving tension, targeting problem areas or simply helping you relax. Fluent in English and Portuguese.",
+      "specialties": ["Deep tissue", "Trigger point therapy", "Swedish massage"],
+      "services": ["massage"],
+      "squareTeamMemberId": "",
+      "bookingUrl": "",
+      "order": 3,
+      "status": "published"
+    },
+    {
+      "id": "martin-lacy",
+      "name": "Martin Lacy",
+      "title": "Esthetician",
+      "photo": "images/staff/martin-lacy.jpg",
+      "bio": "Martin is the newest esthetician on the Buddies team. Through his own techniques and a personalized approach, he takes care to address exactly what your skin needs.",
+      "specialties": ["Skin care"],
+      "services": ["facials", "mens-waxing"],
+      "squareTeamMemberId": "TMA3APoVVseeqPB0",
+      "bookingUrl": "",
+      "order": 4,
+      "status": "published"
+    },
+    {
+      "id": "hoang-pham",
+      "name": "Hoang Pham",
+      "title": "Nail Technician · Massage Therapist · Esthetician",
+      "photo": "images/staff/hoang-pham.jpg",
+      "bio": "Hoang is an experienced, talented nail technician who has been with Buddies since 2022, and clients love his nail design work. He is also a massage therapist and an esthetician for men's waxing.",
+      "specialties": ["Nail design", "Massage", "Men's waxing"],
+      "services": ["nails", "massage", "mens-waxing"],
+      "squareTeamMemberId": "TMTPmRRvfGqTdEoM",
+      "bookingUrl": "",
+      "order": 5,
+      "status": "published"
+    },
+    {
+      "id": "mimi-nguyen",
+      "name": "Mimi Nguyen",
+      "title": "Nail Technician",
+      "photo": "images/staff/mimi-nguyen.jpeg",
+      "bio": "Mimi brings over a decade of experience in nail services, specializing in casual, stylish designs. She is passionate about her craft and dedicated to a relaxing, personalized experience for every client.",
+      "specialties": ["Manicures & pedicures", "Nail design"],
+      "services": ["nails"],
+      "squareTeamMemberId": "TMJTmRYlWKGN71RB",
+      "bookingUrl": "",
+      "order": 6,
+      "status": "published"
+    },
+    {
+      "id": "don-tran",
+      "name": "Don Tran",
+      "title": "Cosmetologist & Barber",
+      "photo": "images/staff/don-tran.jpg",
+      "bio": "With over two decades of experience as a licensed cosmetologist, barber and women's hair stylist, Don creates the ideal look for people of all genders.",
+      "specialties": ["Barbering", "Women's hair", "Color"],
+      "services": ["hair"],
+      "squareTeamMemberId": "TM9lV1ZPmHPMBNqJ",
+      "bookingUrl": "",
+      "order": 7,
+      "status": "published"
+    },
+    {
+      "id": "giavanni-smith",
+      "name": "Giavanni Smith",
+      "title": "Hairstylist & Artist",
+      "photo": "images/staff/giavanni-smith.jpg",
+      "bio": "Giavanni is a hairstylist and artist from Raleigh, North Carolina, with ten years in the beauty industry. He specializes in curly hair care, men's and women's cutting and color, and brings an artist's eye to helping clients find their perfect look while celebrating their natural beauty.",
+      "specialties": ["Curly hair", "Cutting", "Color"],
+      "services": ["hair"],
+      "squareTeamMemberId": "TMpiHVlhXEMSCEJ7",
+      "bookingUrl": "",
+      "order": 8,
+      "status": "published"
+    },
+    {
+      "id": "jay-tran",
+      "name": "Jay Tran",
+      "title": "Hairstylist & Nail Technician",
+      "photo": "images/staff/jay-tran.jpg",
+      "bio": "Jay brings two years of hairstyling and four years of nail care experience. He specializes in personalized haircuts, color and styling that suit each client's taste, and makes sure every visit is relaxing and every client leaves confident.",
+      "specialties": ["Haircuts", "Color", "Nails"],
+      "services": ["hair", "nails"],
+      "squareTeamMemberId": "TMXf0ry_JzBbiBbW",
+      "bookingUrl": "",
+      "order": 9,
+      "status": "published"
+    },
+    {
+      "id": "m-le",
+      "name": "M Le",
+      "title": "[Placeholder: title]",
+      "photo": "images/staff/m-le.jpg",
+      "bio": "M has been part of the Buddies team since 2022, and clients always leave happy after an appointment with M.",
+      "specialties": [],
+      "services": [],
+      "squareTeamMemberId": "TMrS4sdmpdoqtpDs",
+      "bookingUrl": "",
+      "order": 10,
+      "status": "published",
+      "placeholder": true
+    }
+  ]
+}

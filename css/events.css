@@ -1,0 +1,267 @@
+/* Buddies Spa — Events */
+
+/* Event cards */
+.event-list {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.event-card {
+  display: grid;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+@media (min-width: 760px) {
+  .event-card {
+    grid-template-columns: minmax(220px, 340px) 1fr;
+  }
+}
+
+.event-card__media img,
+.event-card__noimg {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.event-card__noimg {
+  display: grid;
+  place-items: center;
+  background: var(--espresso);
+  border-right: 1px solid var(--line-dark);
+}
+
+.event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--cream);
+  line-height: 1;
+}
+
+.event-date__month {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.event-date__day {
+  font-family: var(--font-display);
+  font-size: 5rem;
+}
+
+.event-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+}
+
+.event-card__title {
+  margin: 0;
+  font-size: var(--step-3);
+}
+
+.event-card__when {
+  margin: 0;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.event-card__where {
+  margin: 0;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.event-card__desc {
+  margin-top: var(--space-3);
+  color: var(--ink-soft);
+}
+
+.event-card__free {
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.event-list--past .event-card {
+  background: var(--paper);
+}
+
+@media (min-width: 760px) {
+  .event-list--past .event-card {
+    grid-template-columns: 220px 1fr;
+  }
+}
+
+.event-list--past .event-card__title {
+  font-size: var(--step-2);
+}
+
+/* Host section */
+.host__intro {
+  margin-bottom: var(--space-8);
+}
+
+.host__photo {
+  margin: 0;
+}
+
+.host__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.host__label {
+  margin: var(--space-8) 0 var(--space-4);
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--on-band);
+}
+
+.experience-grid,
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience,
+.package {
+  padding: var(--space-6);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-lg);
+  background: var(--espresso-2);
+}
+
+.experience h4,
+.package h4 {
+  font-size: var(--step-2);
+  color: var(--cream);
+}
+
+.experience p,
+.package p {
+  margin: 0;
+  color: var(--text-on-dark-soft);
+}
+
+.package {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.package--featured {
+  border-color: var(--gold);
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(201, 164, 92, 0.18), transparent 60%),
+    var(--espresso-2);
+}
+
+.package .package__price {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line-dark);
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  line-height: 1;
+  color: var(--cream);
+}
+
+.package__price span {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-soft);
+}
+
+.host__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: var(--space-6);
+}
+
+.tick-list {
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.tick-list li {
+  position: relative;
+  padding: var(--space-2) 0 var(--space-2) 1.6rem;
+  border-bottom: 1px solid rgba(28, 18, 10, 0.25);
+  color: var(--on-band);
+}
+
+.tick-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--on-band-accent);
+  font-size: 0.8em;
+}
+
+.host__ph {
+  margin-top: var(--space-5);
+}
+
+.host-quote {
+  max-width: 860px;
+  margin: var(--space-9) auto 0;
+  text-align: center;
+}
+
+.host-quote blockquote {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--on-band);
+}
+
+.host-quote figcaption {
+  font-size: var(--step--1);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--on-band);
+}
+
+/* Plan form */
+.plan {
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .plan__aside {
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-6));
+    order: 2;
+  }
+}
+
+.plan__urgent {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-style: italic;
+  color: var(--accent);
+}

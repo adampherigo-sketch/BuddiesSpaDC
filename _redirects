@@ -1,0 +1,27 @@
+# Old Square Online URLs -> new pages (301 keeps search rankings and saved links).
+# Each target must exist; tests/site.test.js checks this.
+
+/home                          /                    301
+/faqs                          /faq.html            301
+/trusted-queer-business-dc     /partners.html       301
+/career                        /careers.html        301
+/contact-us                    /contact.html        301
+
+# Square Online system pages
+/s/appointments                /book.html           301
+/s/appointments/*              /book.html           301
+/s/gift-cards                  https://app.squareup.com/gift/MLPP8AGD8S4DY/order  301
+/s/*                           /                    301
+/product/*                     /services.html       301
+/shop/*                        /services.html       301
+
+# Extensionless URLs from the old site (/services, /staff, /events) and short links
+/services                      /services.html       200
+/staff                         /staff.html          200
+/events                        /events.html         200
+/about                         /about.html          200
+/book                          /book.html           200
+/partners                      /partners.html       200
+/careers                       /careers.html        200
+/contact                       /contact.html        200
+/faq                           /faq.html            200

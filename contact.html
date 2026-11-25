@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact &amp; Directions | Buddies Spa · The Queer Spa DC</title>
+  <meta name="description" content="Contact Buddies Spa at 317 H St NW, Washington, DC 20001. Call (202) 926-7178. Open Monday to Saturday 10 AM to 8 PM, Sunday 10 AM to 6 PM. Walk-ins welcome.">
+  <meta name="theme-color" content="#fcf6ea">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Buddies Spa · The Queer Spa DC">
+  <meta property="og:title" content="Contact &amp; Directions | Buddies Spa">
+  <meta property="og:description" content="317 H St NW, Washington, DC · (202) 926-7178 · Walk-ins welcome.">
+  <meta property="og:image" content="images/brand/og-image.jpg">
+  <link rel="icon" href="images/brand/favicon-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mobile-nav.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <script src="js/site-config.js" defer></script>
+  <script src="js/feeds.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</head>
+<body class="page-contact">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-site-header></header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h1>Come say <em>hello.</em></h1>
+        <p class="lead">Questions about a service, help with a booking, or just want to say hi? Call, email, or send us a message. Walk-ins are always welcome.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <div class="info-card reveal">
+            <h2 class="info-card__title">Call or text</h2>
+            <a class="info-card__big" href="tel:+12029267178">(202) 926-7178</a>
+            <p class="muted">The fastest way to reach us during opening hours.</p>
+          </div>
+          <div class="info-card reveal">
+            <h2 class="info-card__title">Email</h2>
+            <a class="info-card__big info-card__big--sm" href="mailto:buddiesmensspa@gmail.com">buddiesmensspa@gmail.com</a>
+          </div>
+          <div class="info-card reveal">
+            <div class="info-card__head">
+              <h2 class="info-card__title">Hours</h2>
+              <span class="open-status" data-open-status></span>
+            </div>
+            <dl class="hours" data-hours-full>
+              <dt>Monday – Saturday</dt><dd>10 AM – 8 PM</dd>
+              <dt>Sunday</dt><dd>10 AM – 6 PM</dd>
+            </dl>
+            <p class="ph-text info-card__note">[Placeholder: holiday hours, if any.]</p>
+          </div>
+          <div class="info-card reveal">
+            <h2 class="info-card__title">Follow</h2>
+            <p class="social-row">
+              <a href="https://www.instagram.com/buddies_spa/" target="_blank" rel="noopener noreferrer">Instagram · @buddies_spa</a>
+              <a href="https://www.facebook.com/buddiesmensspa" target="_blank" rel="noopener noreferrer">Facebook · buddiesmensspa</a>
+            </p>
+          </div>
+        </div>
+
+        <form class="form form-card" data-form="contact" data-success="Thank you! We'll get back to you within one business day." novalidate>
+          <h2 class="form-card__title">Send a message</h2>
+          <div class="form__row form__row--2">
+            <div class="field">
+              <label for="ct-name">Name</label>
+              <input id="ct-name" name="name" autocomplete="name" required maxlength="100">
+            </div>
+            <div class="field">
+              <label for="ct-email">Email</label>
+              <input id="ct-email" name="email" type="email" autocomplete="email" required maxlength="254">
+            </div>
+          </div>
+          <div class="form__row form__row--2">
+            <div class="field">
+              <label for="ct-phone">Phone <span class="optional">(optional)</span></label>
+              <input id="ct-phone" name="phone" type="tel" autocomplete="tel" maxlength="40">
+            </div>
+            <div class="field">
+              <label for="ct-topic">Topic <span class="optional">(optional)</span></label>
+              <select id="ct-topic" name="topic">
+                <option value="">Choose one</option>
+                <option>General question</option>
+                <option>Booking help</option>
+                <option>Gift cards</option>
+                <option>Feedback</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="ct-message">Message</label>
+            <textarea id="ct-message" name="message" required maxlength="5000"></textarea>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="ct-website">Website</label>
+            <input id="ct-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn" type="submit">Send Message</button>
+          <p class="form-status" role="status" data-form-status></p>
+          <p class="form-note">To book or change an appointment, please use <a href="book.html">online booking</a> or call us. See our <a href="privacy.html">privacy policy</a> for how we handle your message.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Map & directions -->
+    <section class="section section--dark" aria-labelledby="map-heading">
+      <div class="container split">
+        <div class="map-card" aria-hidden="true">
+          <div class="map-card__pin">
+            <span class="map-card__dot"></span>
+            <span class="map-card__label">Buddies Spa</span>
+          </div>
+          <span class="map-card__street map-card__street--h">H St NW</span>
+        </div>
+        <div>
+          <p class="eyebrow">Find us</p>
+          <h2 id="map-heading">317 H St NW, <em>Washington, DC 20001</em></h2>
+          <p class="lead">In the heart of Mount Vernon Triangle.</p>
+          <p class="ph-text">[Placeholder: entrance details, nearest Metro stations, and parking.]</p>
+          <div class="btn-row">
+            <a class="btn btn--light" href="https://www.google.com/maps/search/?api=1&amp;query=Buddies+Spa+317+H+St+NW+Washington+DC+20001" target="_blank" rel="noopener noreferrer">Google Maps</a>
+            <a class="btn btn--outline-light" href="https://maps.apple.com/?q=Buddies+Spa&amp;address=317+H+St+NW,+Washington,+DC+20001" target="_blank" rel="noopener noreferrer">Apple Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-site-footer></footer>
+</body>
+</html>

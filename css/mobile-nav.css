@@ -1,0 +1,111 @@
+/* Buddies Spa — narrow-screen header and menu (below 980px, as in the design).
+   "Menu" text button on the left, medallion in the center, Book now on the
+   right; the menu opens as a full-height ivory panel under the header.
+   Breakpoint matches DESKTOP_MIN in js/nav.js. */
+
+@media (max-width: 979px) {
+  :root {
+    --gutter: 20px;
+    --header-h: 92px;
+  }
+
+  /* 64px disc on phones and tablets (matches sealEndPhone in js/intro.js). */
+  .medallion {
+    --s: var(--med-scale, 0.1524);
+  }
+
+  .header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 4px;
+    border: 0;
+    background: none;
+    color: #9c6134;
+    font-family: "Roboto", var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .header-book {
+    display: inline-flex;
+  }
+
+  /* The nav becomes the menu panel. */
+  .primary-nav {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: none;
+    height: auto;
+    overflow-y: auto;
+    padding: 32px var(--gutter);
+    background: var(--champagne);
+  }
+
+  .primary-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .primary-nav__group,
+  .primary-nav__group--end {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  /* In the menu panel: large serif links on hairlines, no pill. */
+  .primary-nav a:not(.primary-nav__book) {
+    display: block;
+    min-height: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    color: var(--accent);
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.2;
+    text-transform: none;
+  }
+
+  .primary-nav a:not(.primary-nav__book):hover,
+  .primary-nav a:not(.primary-nav__book):focus-visible {
+    background: none;
+    color: var(--accent-dark);
+  }
+
+  .primary-nav .primary-nav__book {
+    display: none;
+  }
+
+  body.nav-locked {
+    overflow: hidden;
+  }
+}
+
+/* Small phones: a more compact Book now so it clears the sign. */
+@media (max-width: 420px) {
+  .header-book {
+    padding: 0 10px;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+  }
+}

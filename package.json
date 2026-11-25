@@ -1,0 +1,22 @@
+{
+  "name": "buddies-spa-site",
+  "private": true,
+  "description": "Buddies Spa — The Queer Spa DC. Static site; booking, payments and gift cards stay in Square.",
+  "scripts": {
+    "dev": "node scripts/dev-server.js --open",
+    "build": "node scripts/build-site.js",
+    "test": "node --test",
+    "security:check": "node scripts/security-check.js",
+    "verify": "npm test && npm run build && npm run security:check",
+    "preview": "npm run build && python3 -m http.server 5503 --directory dist",
+    "placeholders": "node scripts/list-placeholders.js",
+    "launch-check": "npm run verify && node scripts/list-placeholders.js --strict"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@netlify/aws-lambda-compat": "2.0.0",
+    "sharp": "0.34.5"
+  }
+}

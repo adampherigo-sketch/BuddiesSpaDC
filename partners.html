@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Partners | Trusted Queer Businesses in DC · Buddies Spa</title>
+  <meta name="description" content="Buddies Spa partners with trusted queer and allied businesses across DC: Big Gay Smiles, PMA Consulting, BW Metro Properties, NoCover DC, Warrior Lab Fitness, Tight Tams, Library For The Kind and Green Lantern.">
+  <meta name="theme-color" content="#fcf6ea">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Buddies Spa · The Queer Spa DC">
+  <meta property="og:title" content="Partners | Buddies Spa">
+  <meta property="og:description" content="Trusted queer and allied businesses we're proud to stand beside.">
+  <meta property="og:image" content="images/brand/og-image.jpg">
+  <link rel="icon" href="images/brand/favicon-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mobile-nav.css">
+  <link rel="stylesheet" href="css/partners.css">
+  <script src="js/site-config.js" defer></script>
+  <script src="js/feeds.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/forms.js" defer></script>
+  <script src="js/partners.js" defer></script>
+</head>
+<body class="page-partners">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-site-header></header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Trusted queer businesses in DC</p>
+        <h1>Stronger <em>together.</em></h1>
+        <p class="lead">Buddies partners with local queer and allied businesses who share our values. Together we cross-promote, host events, and build a network of safe, affirming places across DC where our community can relax, heal and thrive.</p>
+        <div class="btn-row">
+          <a class="btn btn--light" href="#become">Become a Partner</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured spotlight -->
+    <section class="section" aria-labelledby="spotlight-heading">
+      <div class="container" data-partner-spotlight>
+        <div class="is-loading" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- Partner grid -->
+    <section class="section section--paper" aria-labelledby="grid-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Our partners</p>
+          <h2 id="grid-heading">Businesses we're <em>proud to stand beside.</em></h2>
+        </div>
+        <div class="filter-bar" role="group" aria-label="Filter partners by type" data-partner-filters></div>
+        <div class="partner-grid" data-partner-grid>
+          <div class="is-loading" aria-hidden="true"></div>
+        </div>
+        <div class="memberships">
+          <img src="images/equality-chamber.png" alt="Equality Chamber proud member" width="942" height="891" loading="lazy" decoding="async">
+          <p><strong>Community memberships.</strong> Buddies has been a proud member of the Equality Chamber since 2025. <span class="ph-text">[Placeholder: any other chamber or community memberships.]</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How partnership works -->
+    <section class="section" aria-labelledby="how-heading">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-heading">Partnership, <em>the Buddies way.</em></h2>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <h3>Cross-promotion</h3>
+            <p>We feature each other online, in-store and to our clients, introducing our communities to businesses they'll love.</p>
+          </li>
+          <li class="step reveal">
+            <h3>Events together</h3>
+            <p>From Pride with Buddies to pop-ups and wellness nights, we co-host events that bring people together.</p>
+          </li>
+          <li class="step reveal">
+            <h3>Referral offers</h3>
+            <p>Exclusive offers for each other's clients that make it easy to try something new.</p>
+          </li>
+        </ol>
+        <p class="center ph-text">[Placeholder: what partners get, and what Buddies asks of partners.]</p>
+      </div>
+    </section>
+
+    <!-- Become a partner -->
+    <section class="section section--dark" id="become" aria-labelledby="become-heading">
+      <div class="container split split--wide-left become">
+        <div>
+          <p class="eyebrow">Become a partner</p>
+          <h2 id="become-heading">Let's build something <em>for our community.</em></h2>
+          <p class="lead">If you run a queer-owned or allied business and share our commitment to safe, affirming spaces, we'd love to hear from you.</p>
+        </div>
+        <form class="form form-card become__form" data-form="partnership" data-success="Thank you! We'll review your note and reply within a few business days." novalidate>
+          <div class="form__row form__row--2">
+            <div class="field">
+              <label for="pt-business">Business name</label>
+              <input id="pt-business" name="business_name" autocomplete="organization" required maxlength="120">
+            </div>
+            <div class="field">
+              <label for="pt-name">Your name</label>
+              <input id="pt-name" name="name" autocomplete="name" required maxlength="100">
+            </div>
+          </div>
+          <div class="form__row form__row--2">
+            <div class="field">
+              <label for="pt-email">Email</label>
+              <input id="pt-email" name="email" type="email" autocomplete="email" required maxlength="254">
+            </div>
+            <div class="field">
+              <label for="pt-url">Website <span class="optional">(optional)</span></label>
+              <input id="pt-url" name="business_url" autocomplete="url" maxlength="200" placeholder="yourbusiness.com">
+            </div>
+          </div>
+          <div class="field">
+            <label for="pt-type">Business type <span class="optional">(optional)</span></label>
+            <select id="pt-type" name="business_type">
+              <option value="">Choose one</option>
+              <option>Wellness or health</option>
+              <option>Beauty or fashion</option>
+              <option>Nightlife or hospitality</option>
+              <option>Nonprofit or community</option>
+              <option>Professional services</option>
+              <option>Retail</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <fieldset class="field field--checks">
+            <legend>How would you like to partner? <span class="optional">(optional)</span></legend>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="partnership_types[]" value="Cross-promotion"> Cross-promotion</label>
+              <label class="check"><input type="checkbox" name="partnership_types[]" value="Event co-hosting"> Event co-hosting</label>
+              <label class="check"><input type="checkbox" name="partnership_types[]" value="Sponsorship"> Sponsorship</label>
+              <label class="check"><input type="checkbox" name="partnership_types[]" value="Referral offer"> Referral offer</label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="pt-message">Message</label>
+            <textarea id="pt-message" name="message" required maxlength="5000"></textarea>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="pt-website">Website</label>
+            <input id="pt-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn" type="submit">Send Partnership Inquiry</button>
+          <p class="form-status" role="status" data-form-status></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-site-footer></footer>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "_notes": [
+    "Seed data for M-Events (tenant buddies-spa). Same fields as the M-Events public feed plus image and ticketLabel.",
+    "Events move to Past events automatically after their end (or start) date.",
+    "ticketLabel is the button text, e.g. \"Get tickets\" or \"RSVP\". registrationUrl is the Partiful (or other) link.",
+    "Records with \"placeholder\": true are shown with a Placeholder tag so they are easy to spot before launch."
+  ],
+  "events": [
+    {
+      "id": "evt-upcoming-placeholder",
+      "tenantId": "buddies-spa",
+      "category": "Community",
+      "status": "published",
+      "placeholder": true,
+      "title": "[Placeholder: next Buddies event]",
+      "description": "[Placeholder: event description, performers, what to expect.]",
+      "start": "2026-12-12T19:00:00",
+      "end": "",
+      "allDay": false,
+      "location": { "name": "Buddies Spa", "address": "317 H St NW, Washington, DC 20001" },
+      "image": "",
+      "imageAlt": "",
+      "registrationUrl": "",
+      "ticketLabel": "RSVP on Partiful"
+    },
+    {
+      "id": "evt-pride-2026",
+      "tenantId": "buddies-spa",
+      "category": "Pride",
+      "status": "published",
+      "title": "Pride with Buddies 2026",
+      "description": "Buddies Spa and PMA Consulting celebrated Pride with the Mount Vernon Triangle community: a meet and greet with Jackie Cox (RuPaul's Drag Race), a free photo session with Jackie Cox, Bambi Necole Ferrah, Tiffany D. Carter and Sue Pozzie-Torrie, DJ music, live performances and a wig-snatching competition. Sponsored by Big Gay Smiles and BW Metro Properties, in partnership with the Mount Vernon Triangle.",
+      "start": "2026-06-19T17:45:00",
+      "end": "2026-06-20T00:00:00",
+      "allDay": false,
+      "location": { "name": "Buddies Spa", "address": "317 H St NW, Washington, DC 20001" },
+      "image": "images/events/pride-2026.jpg",
+      "imageAlt": "Pride Party at Buddies poster with special guest Jackie Cox, Friday June 19",
+      "registrationUrl": "",
+      "ticketLabel": "Free entry"
+    }
+  ]
+}

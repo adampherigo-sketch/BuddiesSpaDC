@@ -1,0 +1,80 @@
+{
+  "_notes": [
+    "Partners for partners.html (replaces /trusted-queer-business-dc).",
+    "Blurbs are from the current partners page, tightened. url \"\" means the link is still missing (TODO from the client).",
+    "category drives the filter buttons: wellness, community, business, nightlife, nonprofit, retail.",
+    "Exactly one partner can be featured; it shows as the spotlight with its story and quote."
+  ],
+  "featured": {
+    "id": "big-gay-smiles",
+    "story": "Buddies Spa and Big Gay Smiles Dental, two LGBTQIA+ small businesses in Washington, DC, have built a partnership rooted in mutual support and community care. Through cross-promotion and shared values, we help each other grow while building a network of safe, affirming places where people can relax, heal and get the care they deserve.",
+    "quote": "At Big Gay Smiles, led by Dr. Robert McKernan, we are proud to be an LGBTQ2IA+ owned dental practice in the heart of Washington, DC. We're more than a dental office; we're a community. Through our \"10% Promise,\" 10% of our annual revenue is donated to local and national HIV/AIDS nonprofits.",
+    "quoteBy": "Big Gay Smiles Dental"
+  },
+  "partners": [
+    {
+      "id": "big-gay-smiles",
+      "name": "Big Gay Smiles",
+      "category": "wellness",
+      "blurb": "LGBTQ2IA+ owned dental practice focused on comfort, quality and community, with laser dentistry and same-day crowns.",
+      "url": "https://www.biggaysmiles.com/",
+      "logo": "images/partners/big-gay-smiles.png"
+    },
+    {
+      "id": "pma-consulting",
+      "name": "PMA Consulting LLC",
+      "category": "business",
+      "blurb": "Paul Adams' DC-based consultancy for inclusive events, equity and community work; 2023 Homeland Security Champion of Equity.",
+      "url": "https://www.paulmichaeladams.com/",
+      "logo": "images/partners/pma-consulting.jpg"
+    },
+    {
+      "id": "bw-metro",
+      "name": "BW Metro Properties",
+      "category": "business",
+      "blurb": "Brandon Wilson, full-time real estate professional serving Washington, DC, Maryland and Northern Virginia.",
+      "url": "http://bwmetroproperties.com/partners",
+      "logo": "images/partners/bw-metro.png"
+    },
+    {
+      "id": "nocover-dc",
+      "name": "NoCover DC",
+      "category": "community",
+      "blurb": "A body-positive community celebrating gay men of all shapes and appearances, fostering self-acceptance and respect.",
+      "url": "",
+      "logo": "images/partners/nocover-dc.jpg"
+    },
+    {
+      "id": "warrior-lab",
+      "name": "Warrior Lab Fitness",
+      "category": "wellness",
+      "blurb": "Performance training from a former competitive swimmer, lifelong boxer and certified personal trainer.",
+      "url": "https://www.warriorlabfitness.com/",
+      "logo": "images/partners/warrior-lab.png"
+    },
+    {
+      "id": "tight-tams",
+      "name": "Tight Tams",
+      "category": "retail",
+      "blurb": "Playful, queer swimwear made for feeling yourself and having fun.",
+      "url": "https://tighttams.nyc/",
+      "logo": "images/partners/tight-tams.png"
+    },
+    {
+      "id": "library-for-the-kind",
+      "name": "Library For The Kind",
+      "category": "nonprofit",
+      "blurb": "A 501(c)(3) founded by librarians, giving children and families access to books that celebrate diversity, inclusion and kindness.",
+      "url": "https://storytimesolidarity.com/library-for-the-kind/",
+      "logo": "images/partners/library-for-the-kind.png"
+    },
+    {
+      "id": "green-lantern",
+      "name": "Green Lantern",
+      "category": "nightlife",
+      "blurb": "One of DC's favorite gay bars, and a Buddies supporter since day one.",
+      "url": "",
+      "logo": "images/partners/green-lantern.png"
+    }
+  ]
+}

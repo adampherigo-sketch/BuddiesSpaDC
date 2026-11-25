@@ -1,0 +1,181 @@
+/* Buddies Spa — Book Now */
+
+.book-hero {
+  text-align: center;
+}
+
+.book-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-hero h1,
+.book-hero .lead {
+  margin-inline: auto;
+}
+
+.book-hero .btn-row {
+  justify-content: center;
+}
+
+.book-hero__cta {
+  min-height: 60px;
+  padding-inline: 2.4rem;
+  font-size: 0.9rem;
+}
+
+.book-hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-6);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--step--1);
+  color: var(--on-band);
+}
+
+.book-hero__facts a {
+  color: var(--on-band);
+}
+
+.embed-slot {
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.embed-slot p {
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: var(--space-4);
+}
+
+.book-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  color: inherit;
+  text-decoration: none;
+  scroll-margin-top: calc(var(--header-h) + 2rem);
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.book-card:hover,
+.book-card.is-selected {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-2px);
+}
+
+.book-card.is-selected {
+  box-shadow: 0 0 0 3px rgba(110, 74, 44, 0.2), var(--shadow-soft);
+}
+
+.book-card img {
+  width: 84px;
+  height: 84px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.book-card__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.book-card__name {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.book-card__short {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.book-card__cta {
+  margin-top: var(--space-1);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.person-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.person-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-5) var(--space-2) var(--space-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s var(--ease);
+}
+
+.person-chip:hover {
+  border-color: var(--accent);
+}
+
+.person-chip img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  object-position: 50% 20%;
+  border-radius: 50%;
+}
+
+.person-chip span {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.person-chip small {
+  max-width: 24ch;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.know-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: var(--space-5);
+}
+
+.know {
+  padding: var(--space-6);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-lg);
+  background: var(--espresso-2);
+}
+
+.know p {
+  margin: 0;
+  color: var(--text-on-dark-soft);
+}

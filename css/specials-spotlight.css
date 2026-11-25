@@ -1,0 +1,473 @@
+/* Buddies Spa — Monthly Specials: Spotlight (home page)
+   Every class is scoped under .bs-spotlight. Fonts are the site's
+   self-hosted Cormorant Garamond and Jost (css/fonts.css).
+   Behavior lives in js/specials-spotlight.js; without it, the tab list is
+   hidden and all panels show stacked. */
+
+.bs-spotlight {
+  /* The section uses the site's soft champagne brown (text on it is dark);
+     the active tab and the offer panel are a deep inset brown with light text. */
+  --sp-bg: #d6bc95;
+  --sp-ink: #1c120a;
+  --sp-ink-accent: #3d1f08;
+  --sp-panel: #4a3424;
+  --sp-gold: #dcbb7f;
+  --sp-gold-light: #ecd3a0;
+  --sp-cream: #f7efe2;
+  --sp-text: #ede2cf;
+  --sp-muted: #d2c2a6;
+  --sp-dim: #c9b596;
+  --sp-italic: #e3c896;
+  --sp-line: rgba(220, 187, 127, 0.4);
+  --sp-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --sp-pad-x: clamp(16px, 4vw, 64px);
+
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 0%, #e7d5b6, transparent 70%),
+    var(--sp-bg);
+  color: var(--sp-ink);
+  font-family: "Jost", var(--font-body, system-ui, sans-serif);
+  padding: var(--section-pad, 72px) var(--sp-pad-x);
+}
+
+.bs-spotlight[hidden] {
+  display: none;
+}
+
+.bs-spotlight__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.bs-spotlight :focus-visible {
+  outline: 2px solid var(--sp-gold-light);
+  outline-offset: 3px;
+}
+
+/* ---- Header -------------------------------------------------------------- */
+.bs-spotlight__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 40px;
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+
+.bs-spotlight__eyebrow {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--sp-gold);
+}
+
+.bs-spotlight__title {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--sp-cream);
+}
+
+.bs-spotlight__tagline {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  color: var(--sp-italic);
+}
+
+/* ---- Body: tabs + panel --------------------------------------------------- */
+.bs-spotlight__body {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(0, 2.2fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.bs-spotlight__tabs {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--sp-line);
+}
+
+.bs-spotlight__tab {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 88px;
+  padding: 16px 18px 16px 14px;
+  border: 0;
+  border-bottom: 1px solid var(--sp-line);
+  background: transparent;
+  color: var(--sp-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.25s var(--sp-ease);
+}
+
+.bs-spotlight__tab:hover {
+  background: rgba(74, 52, 36, 0.6);
+}
+
+.bs-spotlight__numeral {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--sp-dim);
+}
+
+.bs-spotlight__tab-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.bs-spotlight__dept {
+  font-size: 13px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--sp-muted);
+}
+
+.bs-spotlight__line {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--sp-cream);
+}
+
+.bs-spotlight__chevron {
+  color: var(--sp-dim);
+  transition: transform 0.25s var(--sp-ease), color 0.25s var(--sp-ease);
+}
+
+.bs-spotlight__tab[aria-selected="true"] {
+  background: var(--sp-panel);
+}
+
+.bs-spotlight__tab[aria-selected="true"] .bs-spotlight__numeral,
+.bs-spotlight__tab[aria-selected="true"] .bs-spotlight__dept {
+  color: var(--sp-gold-light);
+}
+
+.bs-spotlight__tab[aria-selected="true"] .bs-spotlight__chevron {
+  color: var(--sp-gold);
+  transform: translateX(4px);
+}
+
+/* ---- Panel ---------------------------------------------------------------- */
+.bs-spotlight__panels {
+  display: grid;
+  gap: 24px;
+}
+
+.bs-spotlight__panel {
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 4vw, 56px);
+  padding: clamp(28px, 4vw, 56px);
+  background: var(--sp-panel);
+}
+
+.bs-spotlight__panel[hidden] {
+  display: none;
+}
+
+.bs-spotlight__photo {
+  position: relative;
+  flex: 0 0 260px;
+  width: 260px;
+  height: 260px;
+  margin: 12px;
+}
+
+/* Gold ring 12px outside the photo. */
+.bs-spotlight__photo::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border: 1px solid var(--sp-gold);
+  border-radius: 50%;
+}
+
+.bs-spotlight__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.bs-spotlight__copy {
+  min-width: 0;
+}
+
+.bs-spotlight__label {
+  margin: 0 0 10px;
+  font-family: "Jost", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--sp-gold);
+}
+
+.bs-spotlight__offer {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(64px, 7vw, 96px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--sp-cream);
+}
+
+.bs-spotlight__subtitle {
+  margin: 8px 0 18px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 26px;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--sp-italic);
+}
+
+.bs-spotlight__detail {
+  max-width: 46ch;
+  margin: 0 0 28px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--sp-text);
+}
+
+.bs-spotlight__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 28px;
+}
+
+.bs-spotlight__book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  background: var(--sp-gold);
+  color: #2b1a10;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.25s var(--sp-ease);
+}
+
+.bs-spotlight__book:hover {
+  background: var(--sp-gold-light);
+  color: #2b1a10;
+}
+
+.bs-spotlight__more {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--sp-gold-light);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.bs-spotlight__more:hover {
+  color: var(--sp-cream);
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+}
+
+/* ---- Fine print ----------------------------------------------------------- */
+.bs-spotlight__fine {
+  margin: clamp(32px, 4vw, 48px) 0 0;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--sp-dim);
+}
+
+.bs-spotlight__fine a {
+  color: var(--sp-gold-light);
+  text-decoration: none;
+}
+
+.bs-spotlight__fine a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Without JavaScript: no tabs, all panels stacked ----------------------- */
+.bs-spotlight:not(.is-enhanced) .bs-spotlight__tabs {
+  display: none;
+}
+
+.bs-spotlight:not(.is-enhanced) .bs-spotlight__body {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* ---- Entrance animation (replayed by JS on each tab change) --------------- */
+.bs-spotlight__panel.is-entering .bs-spotlight__photo {
+  animation: bs-spotlight-photo 0.6s var(--sp-ease) both;
+}
+
+.bs-spotlight__panel.is-entering .bs-spotlight__copy > * {
+  animation: bs-spotlight-rise 0.6s var(--sp-ease) both;
+}
+
+.bs-spotlight__panel.is-entering .bs-spotlight__copy > :nth-child(2) { animation-delay: 0.05s; }
+.bs-spotlight__panel.is-entering .bs-spotlight__copy > :nth-child(3) { animation-delay: 0.1s; }
+.bs-spotlight__panel.is-entering .bs-spotlight__copy > :nth-child(4) { animation-delay: 0.15s; }
+.bs-spotlight__panel.is-entering .bs-spotlight__copy > :nth-child(5) { animation-delay: 0.2s; }
+
+@keyframes bs-spotlight-photo {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes bs-spotlight-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bs-spotlight *,
+  .bs-spotlight *::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---- Narrow screens -------------------------------------------------------- */
+@media (max-width: 860px) {
+  .bs-spotlight__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  /* Tabs become a swipeable row of chips that bleeds to the screen edges. */
+  .bs-spotlight__tabs {
+    flex-direction: row;
+    gap: 10px;
+    margin-inline: calc(-1 * var(--sp-pad-x));
+    padding-inline: var(--sp-pad-x);
+    border-top: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .bs-spotlight__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bs-spotlight__tab {
+    flex: 0 0 auto;
+    grid-template-columns: auto;
+    min-height: 0;
+    padding: 12px 18px;
+    border: 1px solid var(--sp-line);
+    scroll-snap-align: start;
+  }
+
+  .bs-spotlight__tab[aria-selected="true"] {
+    border-color: var(--sp-gold);
+  }
+
+  .bs-spotlight__numeral,
+  .bs-spotlight__chevron {
+    display: none;
+  }
+
+  .bs-spotlight__dept {
+    font-size: 11px;
+  }
+
+  .bs-spotlight__line {
+    font-size: 19px;
+    white-space: nowrap;
+  }
+
+  .bs-spotlight__panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bs-spotlight__photo {
+    flex-basis: 200px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .bs-spotlight__actions {
+    width: 100%;
+  }
+
+  .bs-spotlight__book {
+    width: 100%;
+  }
+}
+
+/* ---- On the wood-brown section: dark text; dark tab + panel keep light ---- */
+.bs-spotlight__eyebrow,
+.bs-spotlight__title,
+.bs-spotlight__fine,
+.bs-spotlight__fine a {
+  color: var(--sp-ink);
+}
+
+.bs-spotlight__tagline {
+  color: var(--sp-ink-accent);
+}
+
+.bs-spotlight__tabs {
+  border-top-color: rgba(28, 18, 10, 0.3);
+}
+
+.bs-spotlight__tab {
+  border-bottom-color: rgba(28, 18, 10, 0.3);
+}
+
+.bs-spotlight__tab[aria-selected="false"] .bs-spotlight__numeral,
+.bs-spotlight__tab[aria-selected="false"] .bs-spotlight__dept,
+.bs-spotlight__tab[aria-selected="false"] .bs-spotlight__line,
+.bs-spotlight__tab[aria-selected="false"] .bs-spotlight__chevron {
+  color: var(--sp-ink);
+}
+
+.bs-spotlight__tab:hover {
+  background: rgba(28, 18, 10, 0.08);
+}
+
+.bs-spotlight__tab[aria-selected="true"] {
+  background: var(--sp-panel);
+}
+
+.bs-spotlight :focus-visible {
+  outline-color: var(--sp-ink);
+}
+
+.bs-spotlight__panel :focus-visible {
+  outline-color: var(--sp-gold-light);
+}
+
+@media (max-width: 860px) {
+  .bs-spotlight__tab {
+    border-color: rgba(28, 18, 10, 0.35);
+  }
+  .bs-spotlight__tab[aria-selected="true"] {
+    border-color: var(--sp-panel);
+  }
+}

@@ -1,0 +1,28 @@
+/* Buddies Spa — Privacy, Terms and 404 */
+
+.page-hero--compact {
+  padding-block: clamp(3.5rem, 2.5rem + 4vw, 6rem) clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+
+.page-hero--compact h1 {
+  max-width: none;
+  font-size: var(--step-4);
+}
+
+.prose ul {
+  margin-bottom: var(--space-5);
+}
+
+.prose li + li {
+  margin-top: var(--space-2);
+}
+
+.not-found {
+  min-height: 60vh;
+  display: grid;
+  align-items: center;
+}
+
+.not-found h1 {
+  max-width: 16ch;
+}

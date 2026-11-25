@@ -1,0 +1,113 @@
+/* Buddies Spa — Services */
+
+.cat-nav {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 50;
+  background: rgba(252, 246, 234, 0.97);
+  border-bottom: 1px solid var(--line);
+}
+
+.cat-nav__inner {
+  display: flex;
+  gap: var(--space-5);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.cat-nav__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-nav a {
+  flex-shrink: 0;
+  padding: var(--space-4) 0;
+  border-bottom: 2px solid transparent;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cat-nav a:hover,
+.cat-nav a[aria-current] {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+.services-list {
+  padding-top: var(--space-8);
+}
+
+.service-block {
+  display: grid;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: start;
+  padding-block: var(--space-8);
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + 70px);
+}
+
+.service-block:last-child {
+  border-bottom: 0;
+}
+
+@media (min-width: 900px) {
+  .service-block {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+  .service-block--flip .service-block__media {
+    order: 2;
+  }
+  .service-block__media {
+    position: sticky;
+    top: calc(var(--header-h) + 90px);
+  }
+}
+
+.service-block__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--arch);
+}
+
+.service-block h2 {
+  margin-top: var(--space-2);
+  font-size: var(--step-3);
+}
+
+.service-block__desc {
+  font-size: var(--step-1);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.service-block__label {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.service-block__menu {
+  margin: var(--space-6) 0;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+}
+
+.service-block__staff {
+  margin-bottom: var(--space-6);
+}
+
+.services-menu-cta {
+  justify-content: center;
+  margin-top: var(--space-6);
+}

@@ -1,0 +1,128 @@
+{
+  "_notes": [
+    "Service categories for the Services, Book Now and FAQ pages.",
+    "Descriptions come from the current buddiesspa.com Services page, tightened.",
+    "menu[] rows are placeholders until the client decides option A, B or C (see CLIENT-QUESTIONS.md). Rows with \"placeholder\": true render with a Placeholder tag.",
+    "squareCategoryId values are the real Square catalog category IDs from the current site; they are kept for option C (Square catalog sync)."
+  ],
+  "categories": [
+    {
+      "id": "mens-waxing",
+      "name": "Men's Waxing",
+      "short": "Our most popular service",
+      "description": "Waxing is the most requested service at Buddies. Our highly trained waxing technicians deliver smooth, long-lasting results, from brows and backs to full Brazilian, in a private, judgment-free room.",
+      "image": "images/services/men-waxing.jpeg",
+      "imageAlt": "Warm wax on an applicator at Buddies Spa",
+      "faq": "waxing-men",
+      "squareCategoryId": "4E7OUS6AH5RC7MJTIU4WY2EX",
+      "menu": [
+        { "name": "Male Brazilian", "price": "", "duration": "", "placeholder": true },
+        { "name": "Back & shoulders", "price": "", "duration": "", "placeholder": true },
+        { "name": "Chest & stomach", "price": "", "duration": "", "placeholder": true }
+      ]
+    },
+    {
+      "id": "womens-waxing",
+      "name": "Women's Waxing",
+      "short": "Smooth skin, healthier skin",
+      "description": "Beyond the smooth finish, regular waxing promotes collagen production, which strengthens skin and can improve elasticity and hydration. Gentle technique, clean rooms, and results that last.",
+      "image": "images/services/women-waxing.jpeg",
+      "imageAlt": "Women's waxing at Buddies Spa",
+      "faq": "waxing-women",
+      "squareCategoryId": "E7ENU5VH4KAX6TKJOG3DEDHX",
+      "menu": [
+        { "name": "Brazilian", "price": "", "duration": "", "placeholder": true },
+        { "name": "Bikini line", "price": "", "duration": "", "placeholder": true },
+        { "name": "Underarm", "price": "", "duration": "", "placeholder": true }
+      ]
+    },
+    {
+      "id": "trans-waxing",
+      "name": "Trans Waxing",
+      "short": "Manzillian & Girlzillian",
+      "description": "The Trans Manzillian and Girlzillian are services designed for our transgender family and friends, so you feel most comfortable and get exactly the service you want, the way you want it.",
+      "image": "images/services/trans-waxing.jpeg",
+      "imageAlt": "Trans waxing services at Buddies Spa",
+      "faq": "waxing-trans",
+      "squareCategoryId": "MR5JNYKPXMIX5WQX7FGBBR4L",
+      "menu": [
+        { "name": "Trans Manzillian", "price": "", "duration": "", "placeholder": true },
+        { "name": "Girlzillian", "price": "", "duration": "", "placeholder": true }
+      ]
+    },
+    {
+      "id": "massage",
+      "name": "Massage",
+      "short": "Release tension, restore calm",
+      "description": "Massage eases muscle tension and releases endorphins that reduce pain and stress. Choose therapeutic, Swedish, deep tissue or trigger point work, tailored to what your body needs that day.",
+      "image": "images/services/massage.jpeg",
+      "imageAlt": "Massage treatment at Buddies Spa",
+      "faq": "massage",
+      "squareCategoryId": "YVPMST5PE5E5XZ2PQAIVHNTK",
+      "menu": [
+        { "name": "Swedish massage", "price": "", "duration": "60 / 90 min", "placeholder": true },
+        { "name": "Deep tissue massage", "price": "", "duration": "60 / 90 min", "placeholder": true },
+        { "name": "Therapeutic massage", "price": "", "duration": "", "placeholder": true }
+      ]
+    },
+    {
+      "id": "facials",
+      "name": "Facials & Back Facials",
+      "short": "Clear, calm, glowing skin",
+      "description": "Professional facials unclog and refine pores, calm razor irritation and help release ingrown hairs. Our estheticians tailor every treatment to your skin, from classic facials to our Purifying Back & Butt Facial.",
+      "image": "images/services/facials.jpeg",
+      "imageAlt": "Facial treatment at Buddies Spa",
+      "faq": "facials",
+      "squareCategoryId": "YMOZNDS5G6MSZZALRDOSMEDB",
+      "menu": [
+        { "name": "Signature facial", "price": "", "duration": "", "placeholder": true },
+        { "name": "Purifying Back & Butt Facial", "price": "", "duration": "60 / 90 min", "placeholder": true },
+        { "name": "Add-on: Pumpkin Enzyme Mask, Red-Light Therapy or High Frequency Scalp Rejuvenation", "price": "$20", "duration": "" }
+      ]
+    },
+    {
+      "id": "nails",
+      "name": "Nails",
+      "short": "Classic to couture",
+      "description": "A manicure or pedicure is a deep clean and an important part of healthy hands and feet. We offer a full nail spa experience for everyone, from classic care to fashion design and nail art.",
+      "image": "images/services/nails.jpeg",
+      "imageAlt": "Nail art at Buddies Spa",
+      "faq": "nails",
+      "squareCategoryId": "PYAKTBCKIJ33CUQV7IOQFWXZ",
+      "menu": [
+        { "name": "Classic manicure", "price": "", "duration": "", "placeholder": true },
+        { "name": "Classic pedicure", "price": "", "duration": "", "placeholder": true },
+        { "name": "Add-on: Cat Eye", "price": "", "duration": "", "placeholder": true }
+      ]
+    },
+    {
+      "id": "hair",
+      "name": "Hair & Barbering",
+      "short": "Cuts and color for every expression",
+      "description": "Always look sharp with haircuts, color and styling from experienced stylists and barbers, for all hair types, styles and gender expressions, including curly hair care.",
+      "image": "images/services/hair.jpeg",
+      "imageAlt": "Haircut at Buddies Spa",
+      "faq": "hair",
+      "squareCategoryId": "27C4EZIZN6UWCDPCN3WLB6XI",
+      "menu": [
+        { "name": "Haircut", "price": "", "duration": "", "placeholder": true },
+        { "name": "Women's haircut", "price": "", "duration": "", "placeholder": true },
+        { "name": "Color", "price": "", "duration": "", "placeholder": true }
+      ]
+    },
+    {
+      "id": "lashes-brows",
+      "name": "Lashes & Brows",
+      "short": "Frame the windows to the soul",
+      "description": "Great lashes and brows are about more than looks. They frame your eyes, help you express your personal style, and give you the confidence to show up as yourself.",
+      "image": "images/services/lashes-brows.jpeg",
+      "imageAlt": "Lash and brow service at Buddies Spa",
+      "faq": "lashes-brows",
+      "squareCategoryId": "6X3IZEYL2GEUWPZKIIJSR7DD",
+      "menu": [
+        { "name": "Brow shaping", "price": "", "duration": "", "placeholder": true },
+        { "name": "Lash service", "price": "", "duration": "", "placeholder": true }
+      ]
+    }
+  ]
+}

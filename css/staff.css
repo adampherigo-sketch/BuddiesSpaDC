@@ -1,0 +1,40 @@
+/* Buddies Spa — Our Team */
+
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-6);
+}
+
+.staff-card {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
+.staff-card[hidden] {
+  display: none;
+}
+
+.staff-card .card__text {
+  font-size: 0.95rem;
+}
+
+.staff-card__services {
+  margin: 0;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.staff-card__services span {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.staff-join__actions {
+  justify-content: flex-start;
+}
+
+@media (min-width: 900px) {
+  .staff-join__actions {
+    justify-content: flex-end;
+  }
+}

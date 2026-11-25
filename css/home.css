@@ -1,0 +1,581 @@
+/* Buddies Spa — Home (layout from the homepage design) */
+
+/* The header overlays the hero; the hero makes its own room for it. */
+.page-home main {
+  padding-top: 0;
+}
+
+/* ---- Welcome intro (first visit; driven by js/intro.js) ---------------- */
+.intro[hidden],
+.intro-cue[hidden],
+.intro-spacer[hidden] {
+  display: none;
+}
+
+/* js/intro-gate.js adds .intro-active before first paint, so the doors show
+   immediately, before js/intro.js has run. */
+.intro-active .intro[hidden],
+.intro-active .intro-spacer[hidden] {
+  display: block;
+}
+
+.intro-active .intro-cue[hidden] {
+  display: flex;
+}
+
+/* How much scrolling opens the doors: --door-scroll screen-heights
+   (TUNING.doorScroll in js/intro.js). */
+.intro-spacer {
+  height: calc(100vh * var(--door-scroll, 1.8));
+  height: calc(100svh * var(--door-scroll, 1.8));
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.intro__door {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* One wood slat wall split across both doors (css/images/wood-slat-wall.jpg),
+     with a soft vignette for depth. Sized to cover the whole screen; the right
+     door shows the wall's right half so the slats line up at the seam. */
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(20, 12, 6, 0) 35%, rgba(20, 12, 6, 0.38) 100%) 0 0 / 100vw 100% no-repeat,
+    url("images/wood-slat-wall.jpg") 0 0 / max(100vw, 160vh) auto no-repeat,
+    var(--espresso);
+  will-change: transform;
+}
+
+.intro__door--right {
+  background-position: -50vw 0, -50vw 0, 0 0;
+}
+
+.intro__door--left {
+  left: 0;
+  box-shadow: inset -1px 0 0 #0c0805;
+  transform: translateX(calc(-1% * var(--intro-dx, 0)));
+}
+
+.intro__door--right {
+  right: 0;
+  box-shadow: inset 1px 0 0 #0c0805;
+  transform: translateX(calc(1% * var(--intro-dx, 0)));
+}
+
+.intro__rail {
+  position: absolute;
+  top: 36px;
+  bottom: 36px;
+  width: 1px;
+  background: rgba(12, 8, 5, 0.85);
+}
+
+.intro__door--left .intro__rail { right: 18px; }
+.intro__door--right .intro__rail { left: 18px; }
+
+.intro__frame {
+  position: absolute;
+  inset: 36px;
+  border: 1px solid rgba(12, 8, 5, 0.75);
+}
+
+.intro__door--left .intro__frame { border-right: 0; }
+.intro__door--right .intro__frame { border-left: 0; }
+
+.intro__handle {
+  position: absolute;
+  top: 64%;
+  width: 4px;
+  height: 64px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #a07a3a, #e2c27c 50%, #a07a3a);
+  box-shadow: 0 2px 6px rgba(20, 12, 6, 0.5);
+}
+
+.intro__door--left .intro__handle { right: 30px; }
+.intro__door--right .intro__handle { left: 30px; }
+
+/* During the intro the header sits above the doors: its bar fades in at the
+   end, and the medallion travels from the middle of the screen into place. */
+.intro-active .site-header {
+  z-index: 250;
+  background: rgba(252, 246, 234, var(--nav-bg, 0));
+  border-bottom-color: rgba(184, 145, 74, var(--nav-line, 0));
+}
+
+.intro-active .primary-nav,
+.intro-active .nav-toggle,
+.intro-active .header-book {
+  opacity: var(--nav-links, 0);
+}
+
+.intro-active:not(.intro-nav-live) .primary-nav,
+.intro-active:not(.intro-nav-live) .nav-toggle,
+.intro-active:not(.intro-nav-live) .header-book {
+  pointer-events: none;
+}
+
+.intro-active .medallion {
+  position: fixed;
+  top: var(--med-top, 50vh);
+}
+
+.intro-cue {
+  position: fixed;
+  left: 50%;
+  bottom: 40px;
+  z-index: 260;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 64px;
+  min-height: 64px;
+  padding: 12px 16px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  opacity: var(--cue, 1);
+  transform: translateX(-50%);
+}
+
+.intro-cue.is-faded {
+  pointer-events: none;
+}
+
+.intro-cue__chevrons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro-cue__chevrons svg {
+  display: block;
+  animation: intro-chevron 1.5s ease-in-out infinite;
+}
+
+.intro-cue__chevrons svg:nth-child(1) { color: #d2b98a; }
+.intro-cue__chevrons svg:nth-child(2) { margin-top: -8px; color: var(--gold-line); animation-delay: 0.15s; }
+.intro-cue__chevrons svg:nth-child(3) { margin-top: -8px; color: var(--cream); animation-delay: 0.3s; }
+
+.intro-cue__label {
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cream);
+  text-shadow: 0 1px 6px rgba(20, 12, 6, 0.7);
+}
+
+@keyframes intro-chevron {
+  0%,
+  100% { opacity: 0.3; transform: translateY(-3px); }
+  50% { opacity: 1; transform: translateY(3px); }
+}
+
+/* ---- Hero ---------------------------------------------------------------- */
+.home-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 56px;
+  max-width: var(--container);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: calc(var(--header-h) + 60px) var(--gutter) 80px;
+}
+
+.home-hero__copy {
+  flex: 999 1 440px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.home-hero__copy .eyebrow,
+.home-hero__copy h1,
+.home-hero__copy p {
+  margin: 0;
+}
+
+.home-hero h1 {
+  font-size: clamp(44px, 6vw, 84px);
+}
+
+.home-hero__intro {
+  max-width: 520px;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.home-hero .btn-row {
+  margin-top: 6px;
+}
+
+.home-hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin: 18px 0 0;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.home-hero__facts a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.home-hero__facts a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.home-hero__media {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Arch frame: a thin gold arch around an arch-cropped photo. */
+.arch-frame {
+  width: 100%;
+  max-width: 440px;
+  height: 540px;
+  padding: 12px;
+  border: 1px solid var(--gold);
+  border-radius: var(--arch);
+}
+
+.arch-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 228px 228px 2px 2px;
+  background: var(--sand-deep);
+}
+
+@media (max-width: 600px) {
+  .home-hero {
+    padding-top: calc(var(--header-h) + 36px);
+  }
+  .arch-frame {
+    height: 460px;
+  }
+}
+
+/* ---- About ---------------------------------------------------------------- */
+.home-about__grid {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  gap: 56px;
+}
+
+.home-about__photo {
+  flex: 1 1 320px;
+  min-width: 0;
+  height: 420px;
+  border: 1px solid var(--line);
+}
+
+/* About sits on the dark espresso band, between cream Services and Reviews. */
+.home-about.section--dark .home-about__photo {
+  border-color: var(--line-dark);
+}
+
+.home-about__copy {
+  flex: 999 1 420px;
+  min-width: 0;
+}
+
+.home-about__copy .lead {
+  max-width: 540px;
+}
+
+.home-about__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* ---- Reviews (rendered by js/home.js) ------------------------------------ */
+.reviews__summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3) var(--space-5);
+  margin-bottom: var(--space-7);
+  text-align: center;
+}
+
+.reviews__score {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  line-height: 1;
+  color: var(--accent);
+}
+
+.stars {
+  color: var(--gold-line);
+  letter-spacing: 0.15em;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 24px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 32px 28px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.review blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+.review figcaption {
+  margin-top: auto;
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+.review figcaption strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.reviews__footer {
+  margin-top: var(--space-6);
+  text-align: center;
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+/* ---- Events: "What's coming up" ------------------------------------------ */
+.home-events {
+  padding-block: var(--section-pad);
+  background: var(--sand);
+}
+
+.home-events__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.home-events__head h2 {
+  margin: 0;
+}
+
+.event-rows {
+  border-top: 1px solid var(--line-strong);
+}
+
+.event-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.event-row__date {
+  flex: 0 0 140px;
+  margin: 0;
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.event-row__main {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.event-row__main h3 {
+  margin: 0;
+  font-size: 1.625rem;
+  color: var(--ink);
+}
+
+.event-row__main p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+
+.event-rows .empty-state {
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+/* ---- Partners ------------------------------------------------------------ */
+.home-partners {
+  padding-block: var(--section-pad);
+}
+
+.home-partners__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.home-partners__inner .eyebrow {
+  margin: 0;
+}
+
+.logo-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.logo-row .is-loading {
+  flex: 1;
+  min-height: 96px;
+}
+
+.logo-tile {
+  flex: 1 1 220px;
+  max-width: 260px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.logo-tile img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ---- Careers + FAQ ------------------------------------------------------- */
+.home-duo {
+  padding-bottom: var(--section-pad);
+}
+
+.home-duo__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.duo-card {
+  flex: 1 1 340px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 44px 40px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + 10px);
+}
+
+.duo-card .eyebrow,
+.duo-card h2,
+.duo-card > p {
+  margin: 0;
+}
+
+.duo-card h2 {
+  font-size: 2.5rem;
+}
+
+.duo-card > p {
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.duo-card .btn,
+.duo-card .link-arrow {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+.duo-card--faq {
+  flex: 1.4 1 420px;
+  gap: 8px;
+}
+
+.duo-card--faq .eyebrow {
+  margin-bottom: 8px;
+}
+
+.accordion--compact {
+  border-top: 0;
+}
+
+.accordion--compact summary {
+  padding: 16px 0;
+}
+
+.accordion--compact .accordion__body {
+  padding-bottom: 16px;
+}
+
+.accordion--compact .accordion__body p {
+  margin: 0;
+}
+
+/* ---- Book band ----------------------------------------------------------- */
+.cta-band .cta-band__contact {
+  margin-top: var(--space-4);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 600px) {
+  .duo-card {
+    padding: 32px 24px;
+  }
+}
+
+/* No stray margin under a section's last line: the section padding alone sets the gap. */
+.reviews__footer,
+.cta-band__contact {
+  margin-bottom: 0;
+}

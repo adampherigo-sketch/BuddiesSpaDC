@@ -1,0 +1,59 @@
+{
+  "_notes": [
+    "Seed data for M-Events promos (category \"promo\", tenant buddies-spa).",
+    "A promo shows from its start date and drops off after its end date. Only status \"published\" promos appear.",
+    "registrationUrl points at Square booking; leave empty to use the main booking link.",
+    "highlights[] is optional: the offer list on the home page card."
+  ],
+  "promos": [
+    {
+      "id": "promo-2026-11",
+      "tenantId": "buddies-spa",
+      "category": "promo",
+      "status": "published",
+      "title": "November Specials",
+      "subtitle": "Sweater weather calls for a little self-care",
+      "description": "The leaves are falling, the air is crisp, and it's officially the season to slow down and take care of you. Before the holiday rush sweeps you away, come curl up with us at Buddies. Every department has something warm waiting for you.",
+      "highlights": [
+        {
+          "label": "Nails",
+          "text": "50% off the Cat Eye add-on, plus $2 off classic manicures and pedicures with OPI Nature Strong polish"
+        },
+        {
+          "label": "Hair",
+          "text": "20% off hair color, weekdays 10 AM to 4 PM"
+        },
+        {
+          "label": "Massage",
+          "text": "$20 off any massage on Mondays and Thursdays"
+        },
+        {
+          "label": "Skin care",
+          "text": "15% off 60- or 90-minute Purifying Back & Butt Facials, and any skin care add-on for $10 (regularly $20)"
+        }
+      ],
+      "terms": "Valid November 1–30, 2026. Cannot be combined with other promotions.",
+      "start": "2026-11-01",
+      "end": "2026-11-30",
+      "image": "images/promos/november-2026.jpg",
+      "imageAlt": "Buddies Spa November Specials 2026: nails, hair, massage and skin care offers",
+      "registrationUrl": ""
+    },
+    {
+      "id": "promo-2026-12",
+      "tenantId": "buddies-spa",
+      "category": "promo",
+      "status": "draft",
+      "title": "[Placeholder: December Specials]",
+      "subtitle": "[Placeholder: one-line hook]",
+      "description": "[Placeholder: December promo copy from the client]",
+      "highlights": [],
+      "terms": "",
+      "start": "2026-12-01",
+      "end": "2026-12-31",
+      "image": "",
+      "imageAlt": "",
+      "registrationUrl": ""
+    }
+  ]
+}
