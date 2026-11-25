@@ -1,18 +1,18 @@
-# Buddies Spa — Deployment
+# Deployment
 
-Same pattern as PMA: GitHub repo → Netlify preview deploys now → the client's
-hosting at launch.
+GitHub repository → Netlify preview deploys during the build → the client's
+domain at launch.
 
 ## 1. Repository
 
-1. Move the project out of iCloud-synced folders (Desktop, Documents) first, for
-   example to `~/Projects/buddies-spa-site`. iCloud renames folders that are
-   deleted and recreated quickly ("js 2", "css 2"), which breaks local builds
-   and can corrupt a `.git` folder. The build now stops with a clear error if
-   it detects this.
-2. `git init -b main`, add the GitHub remote, push.
-3. CI (`.github/workflows/verify.yml`) runs `npm audit` and `npm run verify` on
-   every push and pull request. Dependabot checks npm and Actions weekly.
+- Source lives in the private GitHub repository `adampherigo-sketch/BuddiesSpaDC`
+  (branch `main`).
+- CI (`.github/workflows/verify.yml`) runs `npm audit` and `npm run verify` on
+  every push and pull request. Dependabot checks npm and Actions weekly.
+- Keep the working copy out of iCloud-synced folders (Desktop, Documents), for
+  example in `~/Projects/buddies-spa-site`. iCloud renames folders that are
+  deleted and recreated quickly ("js 2", "css 2"), which breaks local builds
+  and can corrupt `.git`. The build stops with a clear error if it detects this.
 
 ## 2. Netlify
 
@@ -49,9 +49,8 @@ Google Business Profile API access (owner-granted, Google-approved).
 
 The site reads seed files in `data/` until the modules are live:
 
-1. In M-Events: add the image field, the `promo` category and the
-   `buddies-spa` tenant (see `docs/BUILD-PLAN.md`). Import `data/events.json`
-   and `data/promos.json` as the first records.
+1. In M-Events: add the image field and the `buddies-spa` tenant (see
+   [BUILD-PLAN.md](BUILD-PLAN.md)). Import `data/events.json` as the first records.
 2. Build M-Staff from the M-Events pattern and import `data/staff.json`.
 3. Set `feeds.eventsUrl` and `feeds.staffUrl` in `js/site-config.js`. The feeds
    may return an array or `{ "events": [...] }` / `{ "staff": [...] }`.
@@ -59,19 +58,19 @@ The site reads seed files in `data/` until the modules are live:
    in `_headers` (and `img-src` if images are served from it), then update the
    CSP rule in `scripts/security-check.js` to allow exactly that host.
 
-Promos (`category: "promo"`) appear in the home page Specials section on their
-start date and drop off after their end date. They never appear on the Events
-page.
+Monthly Specials are written directly in `index.html` (the Spotlight section,
+with an expiry date on the section itself). If the feed also carries items with
+`category: "promo"`, the Events page skips them.
 
 ## 4. Pre-launch checklist
 
 - [ ] `npm run launch-check` passes (verify **and** zero placeholders)
-- [ ] All questions in `CLIENT-QUESTIONS.md` answered; address and phone conflicts resolved
+- [ ] All questions in [CLIENT-QUESTIONS.md](CLIENT-QUESTIONS.md) answered; address and phone conflicts resolved
 - [ ] Square booking and gift card links confirmed in `js/site-config.js`
 - [ ] Every Book button tested on mobile and desktop, ending in the right Square flow
 - [ ] Each form submitted on the deploy preview and received in the right inbox
 - [ ] Google reviews showing; attribution and "See all reviews on Google" link visible
-- [ ] `CONTENT-RIGHTS-CHECKLIST.md` complete (stock photos licensed or replaced)
+- [ ] [CONTENT-RIGHTS.md](CONTENT-RIGHTS.md) complete (stock photos licensed or replaced)
 - [ ] Privacy and Terms reviewed by the client
 - [ ] Accessibility pass (keyboard, screen reader, contrast) and page speed check
 - [ ] `CONTACT_ALLOWED_ORIGINS` set to the production domain(s)

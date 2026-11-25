@@ -26,7 +26,6 @@ const faq = json("data/faq.json").groups;
 const partners = json("data/partners.json");
 const careers = json("data/careers.json").roles;
 const events = json("data/events.json").events;
-const promos = json("data/promos.json").promos;
 
 const localRefs = (html) => [...html.matchAll(/\s(?:href|src)="([^"]+)"/g)]
   .map((match) => match[1])
@@ -198,8 +197,8 @@ test("partners have logos, valid links and exactly one featured partner", () => 
   }
 });
 
-test("events and promos have valid dates, images and categories", () => {
-  for (const item of [...events, ...promos]) {
+test("events have valid dates, images and categories", () => {
+  for (const item of events) {
     assert.ok(!Number.isNaN(new Date(item.start).getTime()), `${item.id} start`);
     if (item.end) {
       assert.ok(item.end >= item.start.slice(0, item.end.length), `${item.id} ends before it starts`);
@@ -210,7 +209,6 @@ test("events and promos have valid dates, images and categories", () => {
     }
     assert.equal(item.tenantId, "buddies-spa", `${item.id} tenant`);
   }
-  assert.ok(promos.every((item) => item.category === "promo"), "promos use the promo category");
   assert.ok(events.every((item) => item.category !== "promo"), "events never use the promo category");
 });
 

@@ -1,7 +1,13 @@
 {
   "name": "buddies-spa-site",
+  "version": "1.0.0",
   "private": true,
-  "description": "Buddies Spa — The Queer Spa DC. Static site; booking, payments and gift cards stay in Square.",
+  "description": "Website for Buddies Spa, The Queer Spa DC. Static site on Netlify; booking, payments and gift cards stay in Square.",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adampherigo-sketch/BuddiesSpaDC.git"
+  },
   "scripts": {
     "dev": "node scripts/dev-server.js --open",
     "build": "node scripts/build-site.js",

@@ -38,8 +38,8 @@ for (const forbidden of [
   "dist/scripts",
   "dist/.env",
   "dist/.env.example",
-  "dist/DEPLOYMENT.md",
-  "dist/CLIENT-QUESTIONS.md",
+  "dist/docs",
+  "dist/README.md",
   "dist/assets",
   "dist/node_modules",
   "dist/package.json",
@@ -67,7 +67,7 @@ for (const expected of [
 
 // The site loads nothing from other domains: every CSP source must be 'self'
 // (or data: for images). Adding a host (e.g. the M-Events feed) must be a
-// deliberate change to this check, documented in DEPLOYMENT.md.
+// deliberate change to this check, documented in docs/DEPLOYMENT.md.
 const csp = (headers.match(/Content-Security-Policy:(.*)/) || [])[1] || "";
 if (/https?:|\*|'unsafe-(inline|eval)'/.test(csp)) {
   fail("Content-Security-Policy allows a third-party host, wildcard, or unsafe source");

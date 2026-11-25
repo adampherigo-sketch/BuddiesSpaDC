@@ -35,8 +35,8 @@
   const isPublished = (item) => !item.status || item.status === "published";
   const isPromo = (item) => String(item.category || "").toLowerCase() === "promo";
 
-  // Today's date in Washington, DC as YYYY-MM-DD, so promos switch over at
-  // local midnight no matter where the visitor is.
+  // Today's date in Washington, DC as YYYY-MM-DD, so events move to "past"
+  // at local midnight no matter where the visitor is.
   const todayInDC = () => new Intl.DateTimeFormat("en-CA", {
     timeZone: "America/New_York",
     year: "numeric",
@@ -51,28 +51,16 @@
       const all = listFrom(await getJSON(config.feeds.eventsUrl), "events");
       return all.filter(forTenant).filter(isPublished);
     }
-    const [events, promos] = await Promise.all([
-      getJSON("data/events.json"),
-      getJSON("data/promos.json")
-    ]);
-    return [...listFrom(events, "events"), ...listFrom(promos, "promos")]
+    return listFrom(await getJSON("data/events.json"), "events")
       .filter(forTenant)
       .filter(isPublished);
   };
 
-  // Published promos running today, newest first.
-  const getActivePromos = async () => {
-    const today = todayInDC();
-    return (await loadEventFeed())
-      .filter(isPromo)
-      .filter((promo) => dateOnly(promo.start) <= today && (!promo.end || dateOnly(promo.end) >= today))
-      .sort((a, b) => dateOnly(b.start).localeCompare(dateOnly(a.start)));
-  };
-
-  // Events (never promos), split into upcoming (soonest first) and past
+  // Events, split into upcoming (soonest first) and past
   // (most recent first).
   const getEvents = async () => {
     const today = todayInDC();
+    // M-Events also carries promos; those belong to Monthly Specials, not here.
     const events = (await loadEventFeed()).filter((item) => !isPromo(item));
     const lastDay = (event) => dateOnly(event.end || event.start);
     const upcoming = events
@@ -207,7 +195,6 @@
 
   Object.assign(Buddies, {
     getJSON,
-    getActivePromos,
     getEvents,
     getStaff,
     getServices,

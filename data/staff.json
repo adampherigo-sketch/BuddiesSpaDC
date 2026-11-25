@@ -2,7 +2,7 @@
   "_notes": [
     "Seed data for M-Staff (buddies-spa tenant). Fields match the M-Staff plan: name, title, photo, bio, specialties, services, booking link, order, status.",
     "Bios are the client's own copy from the current Staff page, lightly tightened.",
-    "services[] uses category ids from data/services.json. Mappings are inferred from each bio and must be confirmed by the client (see CLIENT-QUESTIONS.md).",
+    "services[] uses category ids from data/services.json. Mappings are inferred from each bio and must be confirmed by the client (see docs/CLIENT-QUESTIONS.md).",
     "squareTeamMemberId values are the real Square team member IDs from the current site; Michael Ney has none there yet.",
     "Only status \"published\" records appear on the site."
   ],

@@ -1,5 +1,5 @@
-// Runs js/site-config.js + js/feeds.js in a sandbox to test the promo and
-// event rules the browser uses (date windows, published only, categories).
+// Runs js/site-config.js + js/feeds.js in a sandbox to test the event rules
+// the browser uses (upcoming vs past, published only, categories).
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
@@ -9,10 +9,9 @@ const vm = require("node:vm");
 
 const root = path.resolve(__dirname, "..");
 
-const loadFeeds = ({ events = [], promos = [], today = "2026-11-24" } = {}) => {
+const loadFeeds = ({ events = [], today = "2026-11-24" } = {}) => {
   const files = {
     "data/events.json": { events },
-    "data/promos.json": { promos },
     "data/staff.json": { staff: [] },
     "data/services.json": { categories: [] }
   };
@@ -42,50 +41,21 @@ const loadFeeds = ({ events = [], promos = [], today = "2026-11-24" } = {}) => {
 
 const promo = (overrides) => ({ category: "promo", status: "published", tenantId: "buddies-spa", title: "Promo", ...overrides });
 
-test("promos show from their start date through their end date", async () => {
-  const Buddies = loadFeeds({
-    promos: [
-      promo({ id: "running", start: "2026-11-01", end: "2026-11-30" }),
-      promo({ id: "starts-today", start: "2026-11-24", end: "2026-12-05" }),
-      promo({ id: "ended-yesterday", start: "2026-11-01", end: "2026-11-23" }),
-      promo({ id: "future", start: "2026-12-01", end: "2026-12-31" })
-    ]
-  });
-  const ids = [...(await Buddies.getActivePromos())].map((item) => item.id);
-  assert.deepEqual(ids, ["starts-today", "running"], "newest first, only running today");
-});
-
-test("draft promos and other tenants never show", async () => {
-  const Buddies = loadFeeds({
-    promos: [
-      promo({ id: "draft", status: "draft", start: "2026-11-01", end: "2026-11-30" }),
-      promo({ id: "other-tenant", tenantId: "pma-consulting", start: "2026-11-01", end: "2026-11-30" })
-    ]
-  });
-  assert.equal((await Buddies.getActivePromos()).length, 0);
-});
-
 test("events split into upcoming and past, and promos stay off the Events page", async () => {
   const Buddies = loadFeeds({
     events: [
       { id: "pride", status: "published", start: "2026-06-19T17:45:00", end: "2026-06-20T00:00:00" },
       { id: "tonight", status: "published", start: "2026-11-24T19:00:00" },
       { id: "next-month", status: "published", start: "2026-12-12T19:00:00" },
-      { id: "hidden", status: "draft", start: "2026-12-20" }
-    ],
-    promos: [promo({ id: "promo", start: "2026-11-01", end: "2026-11-30" })]
+      { id: "hidden", status: "draft", start: "2026-12-20" },
+      { id: "other-tenant", status: "published", tenantId: "pma-consulting", start: "2026-12-01" },
+      promo({ id: "promo", start: "2026-11-01", end: "2026-11-30" })
+    ]
   });
   const { upcoming, past } = await Buddies.getEvents();
   // Spread into this realm's arrays (the sandbox has its own Array).
   assert.deepEqual([...upcoming].map((item) => item.id), ["tonight", "next-month"]);
   assert.deepEqual([...past].map((item) => item.id), ["pride"]);
-});
-
-test("the real seed data has a promo running in November 2026", async () => {
-  const promos = JSON.parse(fs.readFileSync(path.join(root, "data/promos.json"), "utf8")).promos;
-  const Buddies = loadFeeds({ promos, today: "2026-11-15" });
-  const active = await Buddies.getActivePromos();
-  assert.equal(active[0]?.id, "promo-2026-11");
 });
 
 test("safeUrl only allows web, mail, phone and same-site links", () => {

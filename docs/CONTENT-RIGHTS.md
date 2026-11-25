@@ -1,4 +1,4 @@
-# Buddies Spa — Content Rights & Claims Checklist
+# Content rights and claims checklist
 
 An operational safeguard for the site owner and developer, not legal advice.
 Before treating third-party content as approved for production, keep a written
@@ -15,7 +15,7 @@ Being on the old site doesn't prove Buddies holds a license, so confirm each.
 | Script logo (`brand-source/`) | Social share image | Buddies' own mark |
 | Wood slat wall (`css/images/wood-slat-wall.jpg`) | Welcome doors | Confirm source and license |
 | Wax drip (`images/hero/wax-hero.jpg`) | Home hero | Confirm source; looks like stock |
-| November promo graphic (`images/promos/november-2026.jpg`) | Home specials | Client-made; file name credits "Nguyen (Ai)". Confirm any AI or stock elements are licensed |
+| Monthly Specials photos (`images/specials/2026-11/`) | Home Monthly Specials | Confirm source and license for each |
 | Men's waxing, women's waxing, trans waxing, massage, facials, hair, lashes and brows (`images/services/`) | Home, Services, Book | **Several look like stock.** Confirm licenses or replace with real photos of the spa |
 | Nails (`images/services/nails.jpeg`) | Home, Services, Book | Appears to be Buddies' own work; confirm |
 | Staff photos (`images/staff/`) | About, Team, Book | Confirm each person consents to their name, photo and bio online. Several have name or neon overlays; consider a consistent headshot session. Don's photo was cropped to remove payment QR codes |

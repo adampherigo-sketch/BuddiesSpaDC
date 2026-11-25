@@ -2,7 +2,7 @@
   "_notes": [
     "Service categories for the Services, Book Now and FAQ pages.",
     "Descriptions come from the current buddiesspa.com Services page, tightened.",
-    "menu[] rows are placeholders until the client decides option A, B or C (see CLIENT-QUESTIONS.md). Rows with \"placeholder\": true render with a Placeholder tag.",
+    "menu[] rows are placeholders until the client decides option A, B or C (see docs/CLIENT-QUESTIONS.md). Rows with \"placeholder\": true render with a Placeholder tag.",
     "squareCategoryId values are the real Square catalog category IDs from the current site; they are kept for option C (Square catalog sync)."
   ],
   "categories": [

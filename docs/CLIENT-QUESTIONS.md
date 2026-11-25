@@ -1,4 +1,4 @@
-# Buddies Spa — Questions for the client
+# Open questions for the client
 
 Everything the new site is waiting on. Each item shows up on the site as a
 gold **Placeholder** tag until it's answered (`npm run placeholders` lists
@@ -32,21 +32,21 @@ them all).
 
 - [ ] Headline: the hero now reads "Be confident with Buddies Spa" over
   "Be yourself, show your beauty" (both from the current site). OK?
-- [ ] Brand mark: the sign is a black disc with "Welcome to", the rainbow neon
-  "Buddies Spa" and "The Queer Spa DC" (large on the welcome doors; in the
-  header and footer just the disc and neon). The social share image still uses
+- [ ] Brand mark: the sign is a light wood-brown disc with a black border,
+  "Welcome to", the rainbow neon "Buddies Spa" and "The Queer Spa DC" (large on
+  the welcome doors; in the header and footer the disc, neon and tagline). The social share image still uses
   the brown script logo and the favicon a simple "B": switch those too? A
   higher-resolution or vector neon file would sharpen the small header sign.
 - [ ] A photo of the spa interior (Home and About).
 - [ ] "From" prices for the three featured services (waxing, massage, facials),
   and are those the right three to feature?
-- [ ] The welcome doors show once per browser on the first visit (with "Replay
-  welcome" in the footer). Keep it, or show it only on the very first visit ever?
+- [ ] The welcome doors: at launch they show once per browser (with "Replay
+  welcome" in the footer). Keep that, show them every visit, or drop them?
 
 - [ ] Google reviews only, or also Yelp or others?
 - [ ] Show all reviews, or only 4 and 5 stars? (Filtering is possible but less transparent.)
-- [ ] Who will post monthly promos, and do they need their own M-Events login?
-- [ ] December promo details (title, offers, dates, image).
+- [ ] Who will update Monthly Specials each month?
+- [ ] December specials (offers per service, dates, photos).
 
 ## About
 

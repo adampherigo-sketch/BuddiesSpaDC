@@ -48,7 +48,6 @@ const IMAGE_MAX_WIDTHS = [
   ["images/staff/", 900],
   ["images/services/", 1100],
   ["images/hero/", 1100],
-  ["images/promos/", 1400],
   ["images/specials/", 1040],
   ["images/events/", 1200],
   ["images/", 1200]
@@ -70,7 +69,7 @@ const walk = (directory) => fs.readdirSync(directory, { withFileTypes: true })
 const copy = (source) => {
   fs.cpSync(path.join(root, source), path.join(output, source), {
     recursive: true,
-    // Notes like css/images/README.md stay out of the public site.
+    // Any notes (.md) dropped in an asset folder stay out of the public site.
     filter: (file) => path.basename(file) !== ".DS_Store" && !file.endsWith(".md")
   });
 };
@@ -372,7 +371,7 @@ const checkForSyncConflicts = () => {
     throw new Error(
       `dist/ was changed while building (${[...conflicts, ...missing.map((name) => `missing ${name}/`)].join(", ")}). ` +
       "This happens when the project is in an iCloud-synced folder such as Desktop. Run the build again, " +
-      "or move the project out of iCloud (see DEPLOYMENT.md)."
+      "or move the project out of iCloud (see docs/DEPLOYMENT.md)."
     );
   }
 };

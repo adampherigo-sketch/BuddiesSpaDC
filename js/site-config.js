@@ -3,7 +3,7 @@
 // Every page reads business details, hours and booking links from here, so a
 // phone number, an hour or a Square link is changed in ONE place.
 //
-// Anything marked TODO is waiting on the client. See CLIENT-QUESTIONS.md.
+// Anything marked TODO is waiting on the client. See docs/CLIENT-QUESTIONS.md.
 
 window.Buddies = window.Buddies || {};
 

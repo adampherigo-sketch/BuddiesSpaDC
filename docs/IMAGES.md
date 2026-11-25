@@ -1,9 +1,8 @@
-# Design images
+# Image shot list
 
-Photos for the open image spots in the design. Save each file here using the
-name below (JPG or PNG; any size at or above the one listed is fine). The
-build resizes and converts everything in this folder to WebP, and this
-guide is not published.
+Photos for the open image spots in the design. Save each file in
+`css/images/` using the name below (JPG or PNG; any size at or above the one
+listed is fine). The build resizes and converts everything there to WebP.
 
 Once a file is in, it gets wired into its spot. Until then, each spot shows
 a Placeholder tag on the page (`npm run placeholders` lists them).
@@ -31,8 +30,8 @@ into an arch shape.
 
 | File name | Shape · min size | Where it appears |
 |---|---|---|
-| `hero.jpg` | Portrait 4:5 · 1200×1500 | Home hero, inside the gold arch (now a stock wax photo) |
-| `service-waxing.jpg` | Portrait 4:5 · 1200×1500 | Home "Choose your ritual", Services (men's waxing) |
+| `hero.jpg` | Portrait 4:5 · 1200×1500 | Home hero, inside the arch (now a stock wax photo) |
+| `service-waxing.jpg` | Portrait 4:5 · 1200×1500 | Home Services columns, Services (men's waxing) |
 | `service-womens-waxing.jpg` | Portrait 4:5 · 1200×1500 | Services, Book |
 | `service-trans-waxing.jpg` | Portrait 4:5 · 1200×1500 | Services, Book |
 | `service-massage.jpg` | Portrait 4:5 · 1200×1500 | Home, Services, Book |

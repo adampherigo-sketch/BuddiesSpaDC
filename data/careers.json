@@ -1,7 +1,7 @@
 {
   "_notes": [
     "Open roles for careers.html. Departments come from the client's current Careers page.",
-    "Everything marked [Placeholder] is waiting on the Careers workshop (see CLIENT-QUESTIONS.md).",
+    "Everything marked [Placeholder] is waiting on the Careers workshop (see docs/CLIENT-QUESTIONS.md).",
     "Each role's title also appears in the application form's Position dropdown; the contact function accepts any title listed here."
   ],
   "roles": [
