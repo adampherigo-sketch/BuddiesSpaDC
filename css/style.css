@@ -613,7 +613,16 @@ hr {
   line-height: 1;
   text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
   transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+/* Narrow desktops (980–1180px): tighter pills so both groups fit beside the
+   sign without wrapping. */
+@media (min-width: 980px) and (max-width: 1180px) {
+  .primary-nav a {
+    padding: 0 11px;
+  }
 }
 
 .primary-nav a:hover,
@@ -634,6 +643,37 @@ hr {
 
 .primary-nav a[aria-current="page"]:hover {
   text-decoration: none;
+}
+
+/* Book now is the header's one filled button: a bronze pill with ivory text
+   (--ivory on --accent is 7.2:1; on --accent-dark when hovered, 10.8:1). The
+   desktop link sits in the nav; the phone one is .header-book. */
+.primary-nav .primary-nav__book,
+.header-book {
+  background: var(--accent);
+  color: var(--ivory);
+}
+
+.primary-nav .primary-nav__book {
+  margin-left: 8px;
+}
+
+.primary-nav .primary-nav__book:hover,
+.primary-nav .primary-nav__book:focus-visible,
+.header-book:hover,
+.header-book:focus-visible {
+  background: var(--accent-dark);
+  color: var(--ivory);
+}
+
+.primary-nav .primary-nav__book[aria-current="page"] {
+  text-decoration-color: var(--ivory);
+}
+
+.primary-nav .primary-nav__book:focus-visible,
+.header-book:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 3px;
 }
 
 .nav-toggle,
