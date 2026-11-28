@@ -7,7 +7,7 @@
 // Environment (Netlify UI, never in Git):
 //   RESEND_API_KEY, CONTACT_FROM_EMAIL, CONTACT_TO_EMAIL      required
 //   CAREERS_TO_EMAIL, EVENTS_TO_EMAIL, PARTNERS_TO_EMAIL      optional routing
-//   CONTACT_ALLOWED_ORIGINS                                   optional, comma list
+//   CONTACT_ALLOWED_ORIGINS                                   required in production, comma list
 
 const careers = require("../../data/careers.json");
 
@@ -181,10 +181,18 @@ const configuredOrigins = () => (process.env.CONTACT_ALLOWED_ORIGINS || "")
   })
   .filter(Boolean);
 
+// Netlify sets CONTEXT to "production", "deploy-preview", "branch-deploy" or
+// "dev". Previews and local dev may run without an allow-list; production
+// refuses every request until CONTACT_ALLOWED_ORIGINS is set.
+const isProduction = () => process.env.CONTEXT === "production";
+
 const originAllowed = (event) => {
   const origin = getHeader(event, "origin");
   const allowed = configuredOrigins();
-  return !origin || !allowed.length || allowed.includes(origin);
+  if (!allowed.length) {
+    return !isProduction();
+  }
+  return !origin || allowed.includes(origin);
 };
 
 const CONTROL = /[\x00-\x1F\x7F]/;

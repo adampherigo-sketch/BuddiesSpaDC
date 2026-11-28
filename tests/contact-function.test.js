@@ -237,6 +237,25 @@ test("rejects requests from origins that are not allowed", async () => {
   }
 });
 
+test("production rejects forms when no allowed origins are configured", async () => {
+  const saved = { CONTEXT: process.env.CONTEXT, CONTACT_ALLOWED_ORIGINS: process.env.CONTACT_ALLOWED_ORIGINS };
+  delete process.env.CONTACT_ALLOWED_ORIGINS;
+  try {
+    process.env.CONTEXT = "production";
+    assert.equal(await statusFor(base.contact), 403);
+    process.env.CONTEXT = "deploy-preview";
+    assert.notEqual(await statusFor(base.contact), 403);
+  } finally {
+    for (const [key, value] of Object.entries(saved)) {
+      if (value === undefined) {
+        delete process.env[key];
+      } else {
+        process.env[key] = value;
+      }
+    }
+  }
+});
+
 test("delivery failures report service_unavailable", async () => {
   await withDelivery({}, async () => ({ ok: false }), async () => {
     const response = await request(base.contact);

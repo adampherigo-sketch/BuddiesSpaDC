@@ -36,7 +36,7 @@ Never commit values. `.env.example` lists the names.
 | `CAREERS_TO_EMAIL` | no | applications (falls back to `CONTACT_TO_EMAIL`) |
 | `EVENTS_TO_EMAIL` | no | private event inquiries |
 | `PARTNERS_TO_EMAIL` | no | partnership inquiries |
-| `CONTACT_ALLOWED_ORIGINS` | at launch | `https://www.buddiesspa.com,https://buddiesspa.com` |
+| `CONTACT_ALLOWED_ORIGINS` | **yes, in production** | `https://www.buddiesspa.com,https://buddiesspa.com`. If it's empty, the production site rejects every form with 403; deploy previews and local dev work without it |
 | `GOOGLE_PLACES_API_KEY` | for reviews | Google Cloud key restricted to **Places API (New)** |
 | `GOOGLE_PLACE_ID` | for reviews | Buddies Spa's place ID |
 | `REVIEWS_MIN_RATING` | no | e.g. `4` to hide 1–3 star reviews (client decision) |
@@ -73,7 +73,7 @@ with an expiry date on the section itself). If the feed also carries items with
 - [ ] [CONTENT-RIGHTS.md](CONTENT-RIGHTS.md) complete (stock photos licensed or replaced)
 - [ ] Privacy and Terms reviewed by the client
 - [ ] Accessibility pass (keyboard, screen reader, contrast) and page speed check
-- [ ] `CONTACT_ALLOWED_ORIGINS` set to the production domain(s)
+- [ ] `CONTACT_ALLOWED_ORIGINS` set to the production domain(s) (forms are blocked in production without it)
 - [ ] `SHOW_EVERY_TIME` set to `false` in `js/intro-gate.js`, so each visitor sees the welcome doors once (it's `true` while designing)
 
 ## 5. Launch (moving off Square Online)

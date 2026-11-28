@@ -33,11 +33,18 @@ const configuredOrigins = () => (process.env.CONTACT_ALLOWED_ORIGINS || "")
   })
   .filter(Boolean);
 
-const originIsAllowed = (request) => {
+// Production refuses every request until CONTACT_ALLOWED_ORIGINS is set, so
+// a missing variable can't quietly open the form to any site. Deploy
+// previews and local dev keep working without it. CONTEXT is Netlify's
+// deploy context; context.deploy.context is the same value on Functions 2.0.
+const isProduction = (context) =>
+  process.env.CONTEXT === "production" || context?.deploy?.context === "production";
+
+export const originIsAllowed = (request, context) => {
   const allowedOrigins = configuredOrigins();
 
   if (!allowedOrigins.length) {
-    return true;
+    return !isProduction(context);
   }
 
   const origin = request.headers.get("origin") || "";
@@ -59,7 +66,7 @@ const forbiddenResponse = () => new Response(
 export const lambdaHandler = handler;
 
 export default async (request, context) => {
-  if (!originIsAllowed(request)) {
+  if (!originIsAllowed(request, context)) {
     return forbiddenResponse();
   }
 
