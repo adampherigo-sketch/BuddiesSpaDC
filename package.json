@@ -24,7 +24,7 @@
     "node": ">=22"
   },
   "dependencies": {
-    "@netlify/aws-lambda-compat": "2.0.0",
+    "@netlify/aws-lambda-compat": "2.0.4",
     "sharp": "0.34.5"
   }
 }
