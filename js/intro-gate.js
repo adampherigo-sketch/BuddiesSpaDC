@@ -7,10 +7,10 @@
 // they prefer reduced motion. Add ?intro to the URL to force it.
 
 (() => {
-  // SHOW_EVERY_TIME: true shows the doors on every load of the home page
-  // (handy while designing). Set it to false before launch so each visitor
-  // sees them once.
-  const SHOW_EVERY_TIME = true;
+  // SHOW_EVERY_TIME: false (the client's choice) shows the doors once per
+  // visitor, on their first visit. true shows them on every load of the
+  // home page, which is handy while designing.
+  const SHOW_EVERY_TIME = false;
 
   // Preview switch: index.html?intro shows the doors on every load, for
   // editing them (also used by `npm run dev`).

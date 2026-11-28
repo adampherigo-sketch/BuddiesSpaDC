@@ -4,9 +4,9 @@
 // to", the rainbow neon "Buddies Spa" and "The Queer Spa DC". Scrolling the first
 // screen-height opens the doors; the seal shrinks smoothly into the header
 // and the nav fades in. Once fully open,
-// the spacer is removed (keeping the hero exactly where it is) and the intro
-// is remembered in localStorage, so it shows once per browser. "Replay
-// welcome" in the footer shows it again.
+// the spacer is removed (keeping the hero exactly where it is). The intro is
+// remembered in localStorage as soon as it shows, so it appears once per
+// browser. "Replay welcome" in the footer and index.html?intro show it again.
 //
 // js/intro-gate.js decides before first paint whether to show it at all.
 // Everything here only sets CSS custom properties and classes (the strict
@@ -171,6 +171,8 @@
 
   const start = () => {
     active = true;
+    // Seen once shown, so a reload (even before the doors open) skips them.
+    remember();
     root.classList.add("intro-active");
     intro.hidden = false;
     cue.hidden = false;

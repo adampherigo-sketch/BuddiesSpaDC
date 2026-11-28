@@ -77,7 +77,7 @@ with an expiry date on the section itself). If the feed also carries items with
 - [ ] Accessibility pass (keyboard, screen reader, contrast) and page speed check
 - [ ] `SITE_NOINDEX` removed from the production environment, then redeploy (check `/robots.txt` shows `Allow: /`)
 - [ ] `CONTACT_ALLOWED_ORIGINS` set to the production domain(s) (forms are blocked in production without it)
-- [ ] `SHOW_EVERY_TIME` set to `false` in `js/intro-gate.js`, so each visitor sees the welcome doors once (it's `true` while designing)
+- [x] `SHOW_EVERY_TIME` is `false` in `js/intro-gate.js`, so each visitor sees the welcome doors once (`index.html?intro` and the footer's "Replay welcome" still show them again)
 
 ## 5. Launch (moving off Square Online)
 
