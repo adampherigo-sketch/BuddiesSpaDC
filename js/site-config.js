@@ -57,9 +57,10 @@ window.Buddies.config = {
 
     // Per-category deep links. Empty = use `main`.
     // TODO: Ask client whether Square supports per-category and per-staff
-    // booking links (e.g. a link that opens on one team member). Per-staff
-    // links go in data/staff.json "bookingUrl"; with one set, the Our Team
-    // card says "Book with {first name}", otherwise "Book now".
+    // booking links, i.e. whether a Square link can open on a specific team
+    // member (this question was on book.html under "Have a favorite?").
+    // Per-staff links go in data/staff.json "bookingUrl"; with one set, the
+    // Our Team card says "Book with {first name}", otherwise "Book now".
     categories: {
       "mens-waxing": "",
       "womens-waxing": "",
