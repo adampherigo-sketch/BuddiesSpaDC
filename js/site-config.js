@@ -55,8 +55,11 @@ window.Buddies.config = {
     main: "https://book.squareup.com/appointments/n5shnx2b0xm4kh/location/L69140BN2KPWP/services",
     giftCards: "https://app.squareup.com/gift/MLPP8AGD8S4DY/order",
 
-    // Per-category deep links. Empty = use `main`. Fill these in if Square
-    // supports links that open on one category (TODO: confirm in Square).
+    // Per-category deep links. Empty = use `main`.
+    // TODO: Ask client whether Square supports per-category and per-staff
+    // booking links (e.g. a link that opens on one team member). Per-staff
+    // links go in data/staff.json "bookingUrl"; with one set, the Our Team
+    // card says "Book with {first name}", otherwise "Book now".
     categories: {
       "mens-waxing": "",
       "womens-waxing": "",

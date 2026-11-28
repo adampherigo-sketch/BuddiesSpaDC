@@ -58,6 +58,32 @@ test("events split into upcoming and past, and promos stay off the Events page",
   assert.deepEqual([...past].map((item) => item.id), ["pride"]);
 });
 
+test("team Book buttons only promise a person when they have their own link", () => {
+  const Buddies = loadFeeds();
+  const main = Buddies.config.booking.main;
+
+  const personal = Buddies.personBooking({ name: "Mimi Nguyen", bookingUrl: "https://book.squareup.com/appointments/abc/staff/mimi", services: ["nails"] });
+  assert.equal(personal.label, "Book with Mimi");
+  assert.equal(personal.href, "https://book.squareup.com/appointments/abc/staff/mimi");
+
+  const generic = Buddies.personBooking({ name: "Mimi Nguyen", bookingUrl: "", services: ["nails"] });
+  assert.equal(generic.label, "Book now");
+  assert.equal(generic.href, Buddies.bookingUrl("nails"));
+
+  const unsafe = Buddies.personBooking({ name: "Don Tran", bookingUrl: "javascript:alert(1)" });
+  assert.equal(unsafe.label, "Book now", "an unsafe link is ignored");
+  assert.equal(unsafe.href, main);
+});
+
+test("no one in the seed team data is promised a personal booking link", () => {
+  const Buddies = loadFeeds();
+  const staff = JSON.parse(fs.readFileSync(path.join(root, "data/staff.json"), "utf8")).staff;
+  for (const person of staff) {
+    const { label } = Buddies.personBooking(person);
+    assert.equal(label, person.bookingUrl ? `Book with ${person.name.split(" ")[0]}` : "Book now", person.name);
+  }
+});
+
 test("safeUrl only allows web, mail, phone and same-site links", () => {
   const Buddies = loadFeeds();
   assert.equal(Buddies.safeUrl("https://partiful.com/e/abc"), "https://partiful.com/e/abc");

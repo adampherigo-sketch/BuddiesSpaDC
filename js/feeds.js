@@ -122,6 +122,20 @@
 
   const isPlaceholderText = (text) => /\[Placeholder/i.test(String(text || ""));
 
+  // A team member's Book button: "Book with {first name}" only when they have
+  // their own Square link, so the label never promises a person the link
+  // can't open on. Otherwise "Book now" to their first service's category
+  // link (or the main booking page, or book.html when buttons don't go
+  // straight to Square).
+  const personBooking = (person) => {
+    const personal = safeUrl(person?.bookingUrl);
+    if (personal) {
+      return { href: personal, label: `Book with ${String(person.name || "").split(" ")[0]}` };
+    }
+    const href = config.booking.serviceButtonsGoDirect ? Buddies.bookingUrl(person?.services?.[0]) : "book.html";
+    return { href, label: "Book now" };
+  };
+
   // Inline text: **bold** and [Placeholder: …] markers.
   const inline = (text) => {
     const nodes = [];
@@ -208,6 +222,7 @@
     bookLink,
     formatDate,
     showError,
-    isPlaceholderText
+    isPlaceholderText,
+    personBooking
   });
 })();

@@ -1,18 +1,16 @@
 // Buddies Spa — Our Team page (M-Staff).
 // Cards with photo, title, bio, specialties and the services each person
-// performs, a "Book with …" button, and filters by service.
+// performs, a Book button ("Book with …" when they have their own Square
+// link), and filters by service.
 
 (() => {
   const Buddies = window.Buddies;
-  const { el, img, getStaff, getServices, showError, config } = Buddies;
+  const { el, img, getStaff, getServices, showError } = Buddies;
 
-  const bookWith = (person, categories) => {
-    // A personal Square link wins; otherwise their first service's category
-    // link; otherwise the main booking page.
-    const href = Buddies.safeUrl(person.bookingUrl) || Buddies.bookingUrl(person.services?.[0]);
-    const direct = config.booking.serviceButtonsGoDirect || person.bookingUrl;
-    const first = person.name.split(" ")[0];
-    return el("a", { class: "btn btn--sm", href: direct ? href : "book.html" }, `Book with ${first}`);
+  // "Book with {first name}" or "Book now": see personBooking() in js/feeds.js.
+  const bookButton = (person) => {
+    const { href, label } = Buddies.personBooking(person);
+    return el("a", { class: "btn btn--sm", href }, label);
   };
 
   const card = (person, categoriesById) => {
@@ -42,7 +40,7 @@
               return index ? [", ", link] : [link];
             }))
           : el("p", { class: "ph-text" }, "[Placeholder: services performed]"),
-        el("div", { class: "btn-row" }, bookWith(person))
+        el("div", { class: "btn-row" }, bookButton(person))
       )
     );
   };
