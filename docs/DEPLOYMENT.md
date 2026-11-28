@@ -21,7 +21,7 @@ the wrappers in `netlify/functions-modern/`:
 
 | Route | Function | Protection |
 |---|---|---|
-| `POST /.netlify/functions/contact` | `contact.mjs` → `functions/contact.js` | 10 requests/min per IP, origin allow-list, honeypot, strict validation |
+| `POST /.netlify/functions/contact` | `contact.mjs` → `functions/contact.js` | 3 requests/min per IP, origin allow-list, honeypot, strict validation |
 | `GET /.netlify/functions/reviews` | `reviews.mjs` → `functions/reviews.js` | 60 requests/min per IP, 6-hour CDN cache |
 
 ### Environment variables (Netlify UI → Site configuration → Environment)

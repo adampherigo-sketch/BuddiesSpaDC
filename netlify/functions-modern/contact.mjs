@@ -1,6 +1,20 @@
 import { createRequire } from "node:module";
 import { withLambda } from "@netlify/aws-lambda-compat";
 
+// Netlify reads this block from the source without running it, so the
+// values stay literal. RATE LIMIT: windowLimit is the number of form
+// submissions allowed per IP per windowSize seconds.
+export const config = {
+  path: "/.netlify/functions/contact",
+  method: "POST",
+  rateLimit: {
+    action: "rate_limit",
+    windowLimit: 3,
+    windowSize: 60,
+    aggregateBy: ["ip", "domain"]
+  }
+};
+
 const require = createRequire(import.meta.url);
 const { handler } = require("../functions/contact.js");
 const legacyHandler = withLambda(handler);
@@ -50,15 +64,4 @@ export default async (request, context) => {
   }
 
   return legacyHandler(request, context);
-};
-
-export const config = {
-  path: "/.netlify/functions/contact",
-  method: "POST",
-  rateLimit: {
-    action: "rate_limit",
-    windowLimit: 10,
-    windowSize: 60,
-    aggregateBy: ["ip", "domain"]
-  }
 };
