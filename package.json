@@ -14,6 +14,7 @@
     "test": "node --test",
     "security:check": "node scripts/security-check.js",
     "security-check": "node scripts/security-check.js",
+    "check-links": "node scripts/check-links.js",
     "verify": "npm test && npm run build && npm run security:check",
     "preview": "npm run build && python3 -m http.server 5503 --directory dist",
     "placeholders": "node scripts/list-placeholders.js",

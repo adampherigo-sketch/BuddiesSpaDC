@@ -32,3 +32,6 @@ jobs:
 
       - name: Verify tests, build, and security checks
         run: npm run verify
+
+      - name: Check internal links in the build
+        run: npm run check-links

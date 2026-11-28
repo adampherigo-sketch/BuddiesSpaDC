@@ -54,6 +54,7 @@ Add `?intro` to the URL to replay the welcome doors.
 | `npm test` | Run the test suites |
 | `npm run build` | Build the production site into `dist/` |
 | `npm run verify` | Tests, build and security check (what CI runs) |
+| `npm run check-links` | After a build, check every internal link and #anchor in `dist/` |
 | `npm run preview` | Build, then serve `dist/` locally |
 | `npm run placeholders` | List content still waiting on the client |
 | `npm run launch-check` | `verify` plus a check that no placeholders remain |
