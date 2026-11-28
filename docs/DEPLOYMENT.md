@@ -40,6 +40,7 @@ Never commit values. `.env.example` lists the names.
 | `GOOGLE_PLACES_API_KEY` | for reviews | Google Cloud key restricted to **Places API (New)** |
 | `GOOGLE_PLACE_ID` | for reviews | Buddies Spa's place ID |
 | `REVIEWS_MIN_RATING` | no | e.g. `4` to hide 1–3 star reviews (client decision) |
+| `SITE_NOINDEX` | while previewing | `true` keeps the site out of search engines: the build adds `X-Robots-Tag: noindex, nofollow` to every response and writes a Disallow-all `robots.txt`. **Remove it (or set it to anything else) for the public launch** |
 
 Until the Google variables are set, the home page shows a Placeholder block
 instead of reviews. Google returns at most 5 reviews; full history needs
@@ -73,6 +74,7 @@ with an expiry date on the section itself). If the feed also carries items with
 - [ ] [CONTENT-RIGHTS.md](CONTENT-RIGHTS.md) complete (stock photos licensed or replaced)
 - [ ] Privacy and Terms reviewed by the client
 - [ ] Accessibility pass (keyboard, screen reader, contrast) and page speed check
+- [ ] `SITE_NOINDEX` removed from the production environment, then redeploy (check `/robots.txt` shows `Allow: /`)
 - [ ] `CONTACT_ALLOWED_ORIGINS` set to the production domain(s) (forms are blocked in production without it)
 - [ ] `SHOW_EVERY_TIME` set to `false` in `js/intro-gate.js`, so each visitor sees the welcome doors once (it's `true` while designing)
 

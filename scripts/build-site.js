@@ -3,6 +3,8 @@
 //   - converts PNG/JPEG images to resized WebP and rewrites references
 //   - generates favicons and the social share image from the logo
 //   - adds FAQ structured data, canonical URLs, sitemap, robots, security.txt
+//   - SITE_NOINDEX=true keeps the whole site out of search engines (for the
+//     client preview): X-Robots-Tag on every response and a Disallow-all robots.txt
 //
 // Adapted from the PMA Consulting build (same pipeline, Buddies page list).
 
@@ -264,8 +266,47 @@ const buildPages = () => {
 
 // ---- Search + security files ----------------------------------------------
 
-const buildSearchFiles = () => {
+// Set SITE_NOINDEX=true (Netlify environment variable) while the site is a
+// preview. Without it the output is unchanged.
+const isNoindex = () => process.env.SITE_NOINDEX === "true";
+const NOINDEX_HEADER = "X-Robots-Tag: noindex, nofollow";
+
+// Adds the noindex header as the last line of the "/*" block in _headers.
+const addNoindexHeader = (headers) => {
+  const lines = headers.split("\n");
+  const start = lines.findIndex((line) => line.trim() === "/*");
+  if (start < 0) {
+    throw new Error("_headers has no /* block for X-Robots-Tag");
+  }
+  let end = start + 1;
+  while (end < lines.length && /^\s+\S/.test(lines[end])) {
+    end += 1;
+  }
+  lines.splice(end, 0, `  ${NOINDEX_HEADER}`);
+  return lines.join("\n");
+};
+
+const robotsTxt = ({ noindex = false, url = "" } = {}) => {
+  if (noindex) {
+    return "User-agent: *\nDisallow: /\n";
+  }
   const lines = ["User-agent: *", "Allow: /"];
+  if (url) {
+    lines.push(`Sitemap: ${url}/sitemap.xml`);
+  }
+  return `${lines.join("\n")}\n`;
+};
+
+const applyNoindexHeaders = () => {
+  if (!isNoindex()) {
+    return;
+  }
+  const file = path.join(output, "_headers");
+  fs.writeFileSync(file, addNoindexHeader(fs.readFileSync(file, "utf8")));
+  console.log("SITE_NOINDEX: search engines blocked (X-Robots-Tag + robots.txt)");
+};
+
+const buildSearchFiles = () => {
   if (siteUrl()) {
     const urls = indexablePages
       .filter((page) => !["privacy.html", "terms.html"].includes(page))
@@ -275,9 +316,8 @@ const buildSearchFiles = () => {
       path.join(output, "sitemap.xml"),
       `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
     );
-    lines.push(`Sitemap: ${siteUrl()}/sitemap.xml`);
   }
-  fs.writeFileSync(path.join(output, "robots.txt"), `${lines.join("\n")}\n`);
+  fs.writeFileSync(path.join(output, "robots.txt"), robotsTxt({ noindex: isNoindex(), url: siteUrl() }));
 };
 
 // security.txt (RFC 9116); regenerated each build so Expires never lapses.
@@ -354,6 +394,7 @@ const main = async () => {
   await buildBrandAssets(sharp);
   buildSecurityTxt();
   buildSearchFiles();
+  applyNoindexHeaders();
   rewriteReferences(renamed);
   checkForSyncConflicts();
 
@@ -383,4 +424,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { pages, indexablePages, insertPartials, markLinks, faqSchema };
+module.exports = { pages, indexablePages, insertPartials, markLinks, faqSchema, addNoindexHeader, robotsTxt };
