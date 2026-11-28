@@ -125,6 +125,20 @@ test("unknown form types and unexpected fields are rejected", async () => {
   assert.equal(await statusFor(make("contact", { admin: "true" })), 400);
 });
 
+test("inherited object keys are never treated as form types or fields", async () => {
+  for (const formType of ["constructor", "__proto__", "toString", "hasOwnProperty"]) {
+    const response = await request({ ...base.contact, form_type: formType });
+    assert.equal(response.statusCode, 400, `form_type "${formType}"`);
+    assert.equal(JSON.parse(response.body).error, "validation_error");
+  }
+  for (const field of ["constructor", "toString", "valueOf"]) {
+    assert.equal(await statusFor({ ...base.contact, [field]: "x" }), 400, `field "${field}"`);
+  }
+  // A raw "__proto__" key (JSON.parse keeps it as an own property).
+  assert.equal(await statusFor(JSON.stringify(base.contact).replace(/^\{/, '{"__proto__":{"x":1},')), 400);
+  assert.equal(await statusFor({ ...base.contact, form_type: 42 }), 400);
+});
+
 test("required fields are enforced per form type", async () => {
   assert.equal(await statusFor(make("contact", { message: undefined })), 400);
   assert.equal(await statusFor(make("contact", { email: "not-an-email" })), 400);

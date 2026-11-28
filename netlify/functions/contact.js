@@ -257,14 +257,16 @@ const validateRequest = (body) => {
   if (!body || typeof body !== "object" || Array.isArray(body)) {
     return null;
   }
-  const type = FORM_TYPES[body.form_type];
-  if (!type) {
+  // Own keys only: "constructor", "__proto__" or "toString" must never match
+  // something inherited from Object.prototype.
+  if (typeof body.form_type !== "string" || !Object.hasOwn(FORM_TYPES, body.form_type)) {
     return null;
   }
+  const type = FORM_TYPES[body.form_type];
   const rules = { ...COMMON, ...type.fields };
 
   for (const key of Object.keys(body)) {
-    if (!(key in rules)) {
+    if (!Object.hasOwn(rules, key)) {
       return null;
     }
   }
