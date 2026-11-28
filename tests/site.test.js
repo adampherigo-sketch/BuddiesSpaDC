@@ -346,3 +346,12 @@ test("links to other sites open in a new tab with noopener (except Square bookin
     }
   }
 });
+
+test("empty or expired content shows a short message instead of disappearing", () => {
+  const spotlight = read("js/specials-spotlight.js");
+  assert.match(spotlight, /New specials coming soon\./, "expired specials show a coming-soon note");
+  assert.doesNotMatch(spotlight, /section\.hidden = true/, "the specials section is never removed");
+  assert.match(read("css/specials-spotlight.css"), /\.bs-spotlight\.is-empty \.bs-spotlight__body/, "old offers are hidden in the empty state");
+  assert.match(read("js/events.js"), /New events coming soon\. Follow us on Instagram/, "Events page");
+  assert.match(read("js/home.js"), /New events coming soon\. Follow us on /, "home What's coming up");
+});

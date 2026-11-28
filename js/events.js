@@ -60,7 +60,7 @@
     const past = document.querySelector("[data-events-past]");
     try {
       const events = await getEvents();
-      fill(upcoming, events.upcoming, false, "New events are announced here first. Check back soon.");
+      fill(upcoming, events.upcoming, false, "New events coming soon. Follow us on Instagram for the latest.");
       fill(past, events.past, true, "Past events will appear here.");
       Buddies.observeReveal?.();
     } catch (error) {

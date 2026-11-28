@@ -6,7 +6,8 @@
 //
 // Settings on the section:
 //   data-default="nails"       tab shown on load (matches a tab's data-key)
-//   data-expires="2026-11-30"  hide the section after 23:59:59 local time
+//   data-expires="2026-11-30"  after 23:59:59 local time the section shows
+//                              "New specials coming soon." instead of offers
 // Deep links: #special-<key> (e.g. #special-massage) selects that tab and
 // scrolls to the section, on load and on hash change.
 
@@ -23,16 +24,39 @@
     return Date.now() > lastMoment.getTime();
   };
 
-  const setUp = (section) => {
-    if (isExpired(section.dataset.expires)) {
-      section.hidden = true;
-      return null;
+  // Between months (expired, or no offers in the markup) the section keeps
+  // its place on the page with a short note instead of disappearing.
+  const showComingSoon = (section) => {
+    section.classList.add("is-empty");
+    const title = section.querySelector(".bs-spotlight__title");
+    if (title) {
+      title.textContent = "Monthly Specials";
     }
+    section.querySelectorAll(".bs-spotlight__tagline, .bs-spotlight__body, .bs-spotlight__fine").forEach((element) => {
+      element.hidden = true;
+    });
+    const instagram = window.Buddies?.config?.social?.instagram || "https://www.instagram.com/buddies_spa/";
+    const note = document.createElement("div");
+    note.className = "bs-spotlight__empty";
+    const message = document.createElement("p");
+    message.className = "bs-spotlight__empty-text";
+    message.textContent = "New specials coming soon.";
+    const follow = document.createElement("a");
+    follow.className = "bs-spotlight__empty-link";
+    follow.href = instagram;
+    follow.target = "_blank";
+    follow.rel = "noopener noreferrer";
+    follow.textContent = "Follow @buddies_spa for the next offers";
+    note.append(message, follow);
+    section.querySelector(".bs-spotlight__header")?.after(note);
+  };
 
+  const setUp = (section) => {
     const tablist = section.querySelector('[role="tablist"]');
     const tabs = [...section.querySelectorAll('[role="tab"]')];
     const panels = tabs.map((tab) => section.querySelector(`#${CSS.escape(tab.getAttribute("aria-controls"))}`));
-    if (!tablist || !tabs.length || panels.some((panel) => !panel)) {
+    if (isExpired(section.dataset.expires) || !tablist || !tabs.length || panels.some((panel) => !panel)) {
+      showComingSoon(section);
       return null;
     }
 

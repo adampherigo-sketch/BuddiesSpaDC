@@ -34,9 +34,9 @@
       const { upcoming } = await getEvents();
       if (!upcoming.length) {
         list.replaceChildren(el("p", { class: "empty-state" },
-          "New events are announced here and on ",
+          "New events coming soon. Follow us on ",
           el("a", { href: config.social.instagram, target: "_blank", rel: "noopener noreferrer" }, "Instagram"),
-          ". Planning a celebration? ",
+          " for the latest. Planning a celebration? ",
           el("a", { href: "events.html#host" }, "Throw an event with Buddies"),
           "."
         ));

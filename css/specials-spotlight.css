@@ -34,6 +34,54 @@
   display: none;
 }
 
+/* Between months: "New specials coming soon." (js/specials-spotlight.js). */
+.bs-spotlight__empty {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding: clamp(28px, 4vw, 44px);
+  border: 1px solid rgba(28, 18, 10, 0.18);
+  border-radius: 4px;
+}
+
+.bs-spotlight__empty-text {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(28px, 3vw, 38px);
+  font-style: italic;
+  line-height: 1.15;
+  color: var(--sp-ink);
+}
+
+.bs-spotlight__empty-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--sp-ink-accent);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-color: rgba(61, 31, 8, 0.35);
+  text-underline-offset: 0.4em;
+}
+
+.bs-spotlight__empty-link:hover {
+  color: var(--sp-ink);
+  text-decoration-color: currentColor;
+}
+
+.bs-spotlight.is-empty .bs-spotlight__header {
+  margin-bottom: 24px;
+}
+
+/* The no-JS layout below sets display on these, so hide them explicitly. */
+.bs-spotlight.is-empty .bs-spotlight__tagline,
+.bs-spotlight.is-empty .bs-spotlight__body,
+.bs-spotlight.is-empty .bs-spotlight__fine {
+  display: none;
+}
+
 .bs-spotlight__inner {
   max-width: 1240px;
   margin: 0 auto;
