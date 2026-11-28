@@ -158,7 +158,8 @@ test("services data is complete and every category has an FAQ section", () => {
 });
 
 test("home page tiles link to real service categories", () => {
-  const ids = new Set(services.map((category) => category.id));
+  // Category ids, plus the "waxing" group js/services.js wraps around them.
+  const ids = new Set([...services.map((category) => category.id), "waxing"]);
   for (const match of read("index.html").matchAll(/href="services\.html#([\w-]+)"/g)) {
     assert.ok(ids.has(match[1]), `index.html tile links to unknown #${match[1]}`);
   }
@@ -314,4 +315,13 @@ test("home page specials spotlight is wired up correctly", () => {
   assert.ok(tabs.some((t) => t[5] === defaultKey), "data-default matches a tab");
   assert.equal((markup.match(/<h3 class="bs-spotlight__label">/g) || []).length, 4, "panel department labels are h3");
   assert.ok([...markup.matchAll(/<img [^>]*alt="([^"]*)"/g)].every((m) => m[1].length > 10), "every photo has real alt text");
+});
+
+test("the home Waxing column opens the whole waxing group on Services", () => {
+  const home = read("index.html");
+  assert.match(home, /class="bs-svc__col bs-svc__col--waxing[^"]*" href="services\.html#waxing"/);
+  const script = read("js/services.js");
+  assert.match(script, /id: "waxing"/, "js/services.js wraps the waxing categories in #waxing");
+  const waxing = json("data/services.json").categories.filter((category) => /-waxing$/.test(category.id)).map((category) => category.id);
+  assert.deepEqual(waxing, ["mens-waxing", "womens-waxing", "trans-waxing"], "the group covers all three");
 });

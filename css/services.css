@@ -51,8 +51,15 @@
   scroll-margin-top: calc(var(--header-h) + 70px);
 }
 
-.service-block:last-child {
+/* Only the very last section drops its rule, not the last one in a group. */
+[data-services] > .service-block:last-child,
+[data-services] > .service-group:last-child > .service-block:last-child {
   border-bottom: 0;
+}
+
+/* Wraps men's, women's and trans waxing for the services.html#waxing link. */
+.service-group {
+  scroll-margin-top: calc(var(--header-h) + 70px);
 }
 
 @media (min-width: 900px) {

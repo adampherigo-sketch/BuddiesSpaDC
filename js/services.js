@@ -51,6 +51,30 @@
     );
   };
 
+  // Categories that share a group (men's, women's and trans waxing) are
+  // wrapped together so one link reaches all of them: services.html#waxing.
+  // The group comes from the id, so data/services.json stays as it is.
+  const GROUPS = [{ id: "waxing", label: "Waxing", match: (category) => /-waxing$/.test(category.id) }];
+
+  const groupBlocks = (categories, blocks) => {
+    const out = [];
+    let open = null;
+    categories.forEach((category, index) => {
+      const group = GROUPS.find((item) => item.match(category));
+      if (!group) {
+        open = null;
+        out.push(blocks[index]);
+        return;
+      }
+      if (open?.dataset.group !== group.id) {
+        open = el("div", { class: "service-group", id: group.id, "aria-label": group.label, role: "group", dataset: { group: group.id } });
+        out.push(open);
+      }
+      open.append(blocks[index]);
+    });
+    return out;
+  };
+
   const buildNav = (categories) => {
     const nav = document.querySelector("[data-cat-nav]");
     if (!nav) {
@@ -82,7 +106,7 @@
     const container = document.querySelector("[data-services]");
     try {
       const [categories, staff] = await Promise.all([getServices(), getStaff().catch(() => [])]);
-      container.replaceChildren(...categories.map((category, index) => block(category, staff, index)));
+      container.replaceChildren(...groupBlocks(categories, categories.map((category, index) => block(category, staff, index))));
       buildNav(categories);
       Buddies.observeReveal?.();
       // Re-apply a #category in the URL now that the sections exist.
