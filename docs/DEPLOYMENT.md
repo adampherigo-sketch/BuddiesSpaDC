@@ -66,6 +66,7 @@ with an expiry date on the section itself). If the feed also carries items with
 ## 4. Pre-launch checklist
 
 - [ ] `npm run launch-check` passes (verify **and** zero placeholders)
+- [ ] Confirm the GitHub repo visibility is Private.
 - [ ] All questions in [CLIENT-QUESTIONS.md](CLIENT-QUESTIONS.md) answered; address and phone conflicts resolved
 - [ ] Square booking and gift card links confirmed in `js/site-config.js`
 - [ ] Every Book button tested on mobile and desktop, ending in the right Square flow
