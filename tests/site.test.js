@@ -325,3 +325,24 @@ test("the home Waxing column opens the whole waxing group on Services", () => {
   const waxing = json("data/services.json").categories.filter((category) => /-waxing$/.test(category.id)).map((category) => category.id);
   assert.deepEqual(waxing, ["mens-waxing", "womens-waxing", "trans-waxing"], "the group covers all three");
 });
+
+test("links to other sites open in a new tab with noopener (except Square booking)", () => {
+  const files = [...pages, "partials/header.html", "partials/footer.html"];
+  for (const file of files) {
+    for (const [tag] of read(file).matchAll(/<a\s[^>]*href="https?:\/\/[^"]*"[^>]*>/g)) {
+      const href = tag.match(/href="([^"]+)"/)[1];
+      if (/^https:\/\/book\.squareup\.com\/appointments\//.test(href)) {
+        continue; // booking hands off to Square in the same tab (js/site-config.js)
+      }
+      assert.match(tag, /target="_blank"/, `${file}: ${href} opens in a new tab`);
+      assert.match(tag, /rel="[^"]*\bnoopener\b[^"]*"/, `${file}: ${href} has rel="noopener"`);
+    }
+  }
+  // Links scripts build to social, review, partner and event sites.
+  for (const file of ["js/home.js", "js/events.js", "js/partners.js"]) {
+    for (const [call] of read(file).matchAll(/el\("a", \{[^}]*href: (?:config\.social|Buddies\.config\.social|link\b|url\b|googleUrl|Buddies\.safeUrl)[^}]*\}/g)) {
+      assert.match(call, /target: "_blank"/, `${file}: ${call.slice(0, 60)}… opens in a new tab`);
+      assert.match(call, /rel: "noopener/, `${file}: ${call.slice(0, 60)}… has noopener`);
+    }
+  }
+});

@@ -74,6 +74,10 @@ window.Buddies.config = {
 
     // Service and staff Book buttons skip book.html and go straight to Square.
     // The header "Book Now" always opens book.html (gift cards, policies).
+    // Booking links open Square in the same tab on purpose: booking is the
+    // hand-off, and Back returns to the site. Every other link to another
+    // site (social, maps, reviews, gift cards, partners) opens a new tab
+    // with rel="noopener noreferrer" (tests/site.test.js checks the HTML).
     serviceButtonsGoDirect: true
   },
 
