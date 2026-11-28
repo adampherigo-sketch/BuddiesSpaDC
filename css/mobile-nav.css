@@ -68,6 +68,8 @@
     flex-direction: column;
     align-items: stretch;
     gap: 4px;
+    /* Drop the desktop spacing beside the sign so every link shares one left edge. */
+    padding: 0;
   }
 
   /* In the menu panel: large serif links on hairlines, no pill. */
