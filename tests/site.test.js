@@ -89,9 +89,15 @@ test("header and footer partials match the business config", () => {
   assert.ok(footer.includes(config.business.address.street), "footer street");
   assert.ok(footer.includes(config.booking.giftCards), "footer gift card link");
   assert.ok(footer.includes(config.social.instagram) && footer.includes(config.social.facebook), "footer socials");
-  // Main nav (from the homepage design): links split around the medallion.
-  for (const page of ["about.html", "services.html", "events.html", "partners.html", "careers.html", "faq.html", "book.html", "index.html"]) {
-    assert.ok(header.includes(`href="${page}"`), `header links to ${page}`);
+  // Main nav: three links either side of the sign, then Book now.
+  const navGroups = [...header.matchAll(/<div class="primary-nav__group[^"]*">([\s\S]*?)<\/div>/g)]
+    .map((group) => [...group[1].matchAll(/href="([^"]+)"/g)].map((link) => link[1]));
+  assert.deepEqual(navGroups, [
+    ["about.html", "services.html", "staff.html"],
+    ["events.html", "faq.html", "contact.html", "book.html"]
+  ], "header nav groups");
+  for (const page of ["partners.html", "careers.html"]) {
+    assert.ok(!header.includes(`href="${page}"`), `${page} lives in the footer, not the header`);
   }
   assert.match(header, /class="medallion"[^>]*href="index.html"|href="index.html"[^>]*class="medallion"/, "medallion links home");
   // Every page is reachable from the footer, including the two not in the main nav.
